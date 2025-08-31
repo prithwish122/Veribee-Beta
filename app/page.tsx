@@ -1,5 +1,5 @@
 import SplashLoader from "@/components/splash-loader"
-import { SiteNavbar } from "@/components/site-navbar"
+// import { SiteNavbar } from "@/components/site-navbar"
 import { GridBeams } from "@/components/magicui/grid-beams"
 import { SafariDemo } from "@/components/safari-demo"
 import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night-mode"
@@ -11,7 +11,7 @@ export default function Page() {
     <SplashLoader minDurationMs={1200}>
       <main className="relative min-h-screen">
         {/* Navbar */}
-        <SiteNavbar />
+        {/* <SiteNavbar /> */}
 
         {/* Hero section */}
         <section className="relative mx-auto flex min-h-screen max-w-6xl flex-col items-center px-4 pt-10 pb-16 sm:px-6 md:pt-14 lg:px-8">
