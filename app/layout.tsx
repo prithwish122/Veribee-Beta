@@ -6,6 +6,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
 import GsapSmoothScroller from "@/components/gsap-smooth-scroller"
+import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night-mode"
 
 export const metadata: Metadata = {
   title: "v0 App",
@@ -23,7 +24,10 @@ export default function RootLayout({
       <body className={`min-h-screen min-h-dvh bg-transparent font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={<div>Loading...</div>}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <GsapSmoothScroller smoothness={0.08}>{children}</GsapSmoothScroller>
+            <div className="sticky top-4 md:top-6 z-[60] w-full flex justify-center pt-0">
+              <FloatingDockWithNightMode />
+            </div>
+            <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller>
           </ThemeProvider>
         </Suspense>
       </body>

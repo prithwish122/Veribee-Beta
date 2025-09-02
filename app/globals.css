@@ -126,6 +126,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    scroll-behavior: smooth; /* smoother anchor jumps to complement momentum scroll */
   }
   body {
     @apply text-foreground;

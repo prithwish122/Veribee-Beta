@@ -30,7 +30,7 @@ export default function Page() {
 
           <div className="relative z-[2] w-full flex flex-col items-center">
             <div className="w-full flex justify-center">
-              <FloatingDockWithNightMode />
+              {/* <FloatingDockWithNightMode /> */}
             </div>
 
             <div className="flex w-full flex-1 items-center justify-center">
