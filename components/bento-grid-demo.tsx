@@ -1,4 +1,6 @@
 import type React from "react"
+import { Shield, Settings, Bot, Lock } from "lucide-react"
+import { motion } from "motion/react"
 
 // BentoGrid Components
 const BentoGrid = ({
@@ -57,7 +59,7 @@ const BentoGridItem = ({
         style={{ boxShadow: "0 0 0 0 rgba(59,130,246,0)", borderColor: "rgba(59,130,246,0.5)" }}
       />
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center">{header}</div>
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">{header}</div>
 
       {/* subtle sweep */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 -translate-x-full group-hover/bento:translate-x-full transition-transform duration-700 ease-out" />
@@ -65,21 +67,60 @@ const BentoGridItem = ({
   )
 }
 
-const StatHeader = ({
-  value,
-  label,
-  desc,
+const FeatureHeader = ({
+  icon: Icon,
+  title,
+  description,
 }: {
-  value: string
-  label: string
-  desc: string
+  icon: React.ElementType
+  title: string
+  description: string
 }) => (
-  <div className="relative flex h-44 md:h-[11rem] w-full items-center justify-center text-center p-6">
-    <div className="relative z-[1] group-hover/bento:scale-105 transition-transform duration-500 ease-out">
-      {/* large number/percentage */}
-      <div className="text-6xl md:text-7xl font-extrabold tracking-tight leading-none text-white drop-shadow-lg">{value}</div>
-      <div className="mt-2 text-lg md:text-2xl font-bold tracking-wide text-white/95">{label}</div>
-      <p className="mx-auto mt-3 max-w-sm text-base md:text-lg font-semibold leading-relaxed text-white/90">{desc}</p>
+  <div className="relative flex h-full w-full flex-col items-center justify-center text-center">
+    <motion.div
+      className="mb-4 p-4 rounded-2xl bg-blue-500/10 border border-blue-400/20 group-hover/bento:bg-blue-500/20 transition-colors duration-500"
+      whileHover={{ scale: 1.1, rotate: 5 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
+      <Icon className="w-8 h-8 text-blue-400 group-hover/bento:text-blue-300 transition-colors duration-500" />
+    </motion.div>
+    
+    <motion.div
+      className="space-y-3 group-hover/bento:scale-105 transition-transform duration-500 ease-out"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2 }}
+    >
+      <h3 className="text-xl md:text-2xl font-bold tracking-wide text-white/95 leading-tight">
+        {title}
+      </h3>
+      <p className="mx-auto max-w-sm text-sm md:text-base font-medium leading-relaxed text-white/80">
+        {description}
+      </p>
+    </motion.div>
+
+    {/* Floating particles animation */}
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {[...Array(3)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
+          style={{
+            left: `${20 + i * 30}%`,
+            top: `${30 + i * 20}%`,
+          }}
+          animate={{
+            y: [-10, 10, -10],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 3 + i,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.5,
+          }}
+        />
+      ))}
     </div>
   </div>
 )
@@ -88,22 +129,40 @@ export function BentoGridDemo() {
   return (
     <section className="py-16 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="ext-4xl md:text-6xl font-extrabold text-foreground mb-2">Our Solution</h2>
-        </div>
-        <BentoGrid className="md:auto-rows-[20rem]">
-          {items.map((item, i) => (
-            <BentoGridItem
-              key={i}
-              title={item.title}
-              description={item.description}
-              header={<StatHeader value={item.value} label={item.label} desc={item.desc} />}
-              className={item.className}
-              bgUrl="/images/grid.png"
-              overlayOpacity={0.6}
-            />
-          ))}
-        </BentoGrid>
+        <motion.div 
+          className="text-center mb-16 md:mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-6xl font-extrabold text-foreground mb-2">Our Solution</h2>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <BentoGrid className="md:auto-rows-[20rem]">
+            {items.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <BentoGridItem
+                  title={item.title}
+                  description={item.description}
+                  header={<FeatureHeader icon={item.icon} title={item.title} description={item.description} />}
+                  className={item.className}
+                  bgUrl="/images/grid.png"
+                  overlayOpacity={0.6}
+                />
+              </motion.div>
+            ))}
+          </BentoGrid>
+        </motion.div>
       </div>
     </section>
   )
@@ -111,35 +170,27 @@ export function BentoGridDemo() {
 
 const items = [
   {
-    title: "The Dawn of Innovation",
-    description: "Backed by AI and ZK identity to eliminate bots and duplicates.",
-    value: "98%",
-    label: "Verified Responses",
-    desc: "Backed by AI and ZK identity to eliminate bots and duplicates.",
+    icon: Shield,
+    title: "OCID Integration",
+    description: "Prevent bots and multiple submissions.",
     className: "md:col-span-2",
   },
   {
-    title: "The Digital Revolution",
-    description: "Escrow smart contracts ensure instant, tamper-proof payouts.",
-    value: "100%",
-    label: "Fair Rewards",
-    desc: "Escrow smart contracts ensure instant, tamper-proof payouts.",
+    icon: Settings,
+    title: "Fully Customizable Forms",
+    description: "Flexible surveys tailored to your needs.",
     className: "md:col-span-1",
   },
   {
-    title: "The Art of Design",
-    description: "AI-powered analytics deliver results in real time.",
-    value: "70%",
-    label: "Faster Insights",
-    desc: "AI-powered analytics deliver results in real time.",
+    icon: Bot,
+    title: "Agentic Verification",
+    description: "Filter out fake and duplicate responses instantly.",
     className: "md:col-span-1",
   },
   {
-    title: "The Power of Communication",
-    description: "Fully automated surveys — seamless, trustless, and efficient.",
-    value: "0%",
-    label: "Manual Effort",
-    desc: "Fully automated surveys — seamless, trustless, and efficient.",
+    icon: Lock,
+    title: "Escrow-Based Incentivization",
+    description: "Rewards are locked and released only for verified and relevant responses.",
     className: "md:col-span-2",
   },
 ]
