@@ -5,6 +5,7 @@ import { SafariDemo } from "@/components/safari-demo"
 import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night-mode"
 import { BlueBlurBackground } from "@/components/blue-blur-background"
 import TrustedBy from "@/components/trusted-by"
+import BentoGridDemo from "@/components/bento-grid-demo"
 
 export default function Page() {
   return (
@@ -52,7 +53,8 @@ export default function Page() {
         </section>
 
         {/* TrustedBy section */}
-        <TrustedBy />
+        {/* <TrustedBy /> */}
+        <BentoGridDemo />
       </main>
     </SplashLoader>
   )
