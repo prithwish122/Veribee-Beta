@@ -150,25 +150,25 @@ export function BentoGridDemo() {
 
 const items = [
   {
-    icon: Shield,
+    // icon: Shield,
     title: "OCID Integration",
     description: "Prevent bots and multiple submissions.",
     className: "md:col-span-2",
   },
   {
-    icon: Settings,
+    // icon: Settings,
     title: "Fully Customizable Forms",
     description: "Flexible surveys tailored to your needs.",
     className: "md:col-span-1",
   },
   {
-    icon: Bot,
+    // icon: Bot,
     title: "Agentic Verification",
     description: "Filter out fake and duplicate responses instantly.",
     className: "md:col-span-1",
   },
   {
-    icon: Lock,
+    // icon: Lock,
     title: "Escrow-Based Incentivization",
     description: "Rewards are locked and released only for verified and relevant responses.",
     className: "md:col-span-2",
