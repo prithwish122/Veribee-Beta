@@ -7,6 +7,7 @@ import { BlueBlurBackground } from "@/components/blue-blur-background"
 import TrustedBy from "@/components/trusted-by"
 import BentoGridDemo from "@/components/bento-grid-demo"
 import InsightIntro from "@/components/insight-intro"
+import StickyScrollRevealDemo from "@/components/sticky-scroll-reveal-demo"
 
 export default function Page() {
   return (
@@ -77,6 +78,18 @@ export default function Page() {
         <InsightIntro className="mt-20 mb-20" />
 
         <BentoGridDemo />
+        
+        <section id="how-it-works" className="relative bg-black py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <header className="mb-10 text-center">
+              <h2 className="text-balance text-3xl font-semibold text-white md:text-5xl">How it works</h2>
+              <p className="mx-auto mt-3 max-w-2xl text-pretty text-sm text-white/70 md:text-base">
+                A quick look at the real-time, collaborative workflow.
+              </p>
+            </header>
+            <StickyScrollRevealDemo />
+          </div>
+        </section>
       </main>
     </SplashLoader>
   )
