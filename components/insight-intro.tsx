@@ -12,10 +12,12 @@ export default function InsightIntro({ className }: InsightIntroProps) {
     >
       <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
         {/* Left: copy */}
-        <div className="space-y-4">
+        <div className="space-y-6">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-2">
+            The Problem
+          </h1>
           <p className="text-pretty text-2xl font-extrabold leading-10 text-foreground md:text-4xl">
-            40% of survey responses are fake, 60% of rewards are wasted, and 80% of insights never reach
-            decision-makers. The need for reliable, verified feedback has never been higher.
+            40% of responses are fake. 60% of rewards are wasted. 80% of insights are lost.
           </p>
         </div>
 

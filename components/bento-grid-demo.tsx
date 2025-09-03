@@ -77,22 +77,20 @@ const StatHeader = ({
   <div className="relative flex h-44 md:h-[11rem] w-full items-center justify-center text-center p-6">
     <div className="relative z-[1] group-hover/bento:scale-105 transition-transform duration-500 ease-out">
       {/* large number/percentage */}
-      <div className="text-5xl md:text-6xl font-bold tracking-tight leading-none text-white">{value}</div>
-      <div className="mt-2 text-base md:text-lg font-semibold tracking-wide text-white/95">{label}</div>
-      <p className="mx-auto mt-3 max-w-sm text-[13px] md:text-sm leading-relaxed text-white/80">{desc}</p>
+      <div className="text-6xl md:text-7xl font-extrabold tracking-tight leading-none text-white drop-shadow-lg">{value}</div>
+      <div className="mt-2 text-lg md:text-2xl font-bold tracking-wide text-white/95">{label}</div>
+      <p className="mx-auto mt-3 max-w-sm text-base md:text-lg font-semibold leading-relaxed text-white/90">{desc}</p>
     </div>
   </div>
 )
 
 export function BentoGridDemo() {
   return (
-    // removed page-level gradient; keep section padding only
     <section className="py-16 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-5xl text-white mb-6 tracking-tight">Why choose us ?</h2>
+          <h2 className="ext-4xl md:text-6xl font-extrabold text-foreground mb-2">Our Solution</h2>
         </div>
-
         <BentoGrid className="md:auto-rows-[20rem]">
           {items.map((item, i) => (
             <BentoGridItem
