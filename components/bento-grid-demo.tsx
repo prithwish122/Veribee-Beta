@@ -90,7 +90,7 @@ export function BentoGridDemo() {
     <section className="py-16 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Why choose us ?</h2>
+          <h2 className="text-5xl text-white mb-6 tracking-tight">Why choose us ?</h2>
         </div>
 
         <BentoGrid className="md:auto-rows-[20rem]">

@@ -11,6 +11,25 @@ export default function Page() {
   return (
     <SplashLoader minDurationMs={1200}>
       <main className="relative min-h-screen">
+        {/* Background image for first 130vh */}
+        <div className="absolute inset-0 h-[130vh] w-full -z-10">
+          <img
+            src="/images/bg-veribee.jpg"
+            alt="Background"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "center" }}
+          />
+          {/* Gradient overlay for smooth transition to black */}
+          <div
+            className="absolute bottom-0 left-0 w-full h-[30vh] pointer-events-none"
+            style={{
+              background: "linear-gradient(to bottom, transparent 0%, black 100%)",
+            }}
+          />
+        </div>
+        {/* Black background for everything after 130vh */}
+        <div className="absolute top-[130vh] left-0 w-full min-h-[calc(100vh+100%)] bg-black -z-10" />
+
         {/* Navbar */}
         {/* <SiteNavbar /> */}
 
