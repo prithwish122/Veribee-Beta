@@ -6,6 +6,7 @@ import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night
 import { BlueBlurBackground } from "@/components/blue-blur-background"
 import TrustedBy from "@/components/trusted-by"
 import BentoGridDemo from "@/components/bento-grid-demo"
+import InsightIntro from "@/components/insight-intro"
 
 export default function Page() {
   return (
@@ -73,6 +74,8 @@ export default function Page() {
 
         {/* TrustedBy section */}
         {/* <TrustedBy /> */}
+        <InsightIntro className="mt-20 mb-20" />
+
         <BentoGridDemo />
       </main>
     </SplashLoader>

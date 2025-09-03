@@ -38,6 +38,7 @@
     "@radix-ui/react-toggle": "latest",
     "@radix-ui/react-toggle-group": "latest",
     "@radix-ui/react-tooltip": "latest",
+    "@splinetool/react-spline": "^4.1.0",
     "@tabler/icons-react": "latest",
     "@vercel/analytics": "1.3.1",
     "autoprefixer": "^10.4.20",
