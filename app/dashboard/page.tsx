@@ -16,6 +16,7 @@ import {
   Settings,
 } from "lucide-react"
 import Sidebar from "@/components/dashboard-sidebar"
+import Survey from "@/components/Survey"
 import GlassButton from "@/components/glass-button"
 import MainContent from "@/components/main-content"
 import { ChartRadarDots, ChartPieLabel } from "@/components/chart-components"
@@ -262,7 +263,7 @@ function DashboardView() {
         <ChartPieLabel />
       </div>
 
-      
+
     </motion.div>
   )
 }
@@ -461,6 +462,7 @@ export default function DashboardPage() {
   const handleParticipate = () => setCurrentView("participate")
   const handleProfile = () => setCurrentView("profile")
   const handleReadDocs = () => setCurrentView("docs")
+  const handleCompose = () => setCurrentView("compose")
 
   const renderCurrentView = () => {
     switch (currentView) {
@@ -472,11 +474,14 @@ export default function DashboardPage() {
         return <ProfileView />
       case "docs":
         return <ReadDocsView />
+      case "compose":
+        return <Survey />
       default:
         return <DashboardView />
     }
   }
 
+  const isCompose = currentView === "compose"
   return (
     <div className="min-h-screen bg-black">
       <Sidebar
@@ -484,10 +489,11 @@ export default function DashboardPage() {
         onParticipate={handleParticipate}
         onProfile={handleProfile}
         onReadDocs={handleReadDocs}
+        onCompose={handleCompose}
         currentView={currentView}
       />
 
-      <main className="ml-72 p-6">{renderCurrentView()}</main>
+      <main className={isCompose ? "ml-72 h-screen" : "ml-72 p-6"}>{renderCurrentView()}</main>
     </div>
   )
 }
