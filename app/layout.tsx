@@ -27,7 +27,8 @@ export default function RootLayout({
             <div className="sticky top-4 md:top-6 z-[60] w-full flex justify-center pt-0">
               <FloatingDockWithNightMode />
             </div>
-            <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller>
+            {/* <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller> */}
+            {children}
           </ThemeProvider>
         </Suspense>
       </body>

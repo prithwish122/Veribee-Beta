@@ -8,6 +8,7 @@ import TrustedBy from "@/components/trusted-by"
 import BentoGridDemo from "@/components/bento-grid-demo"
 import InsightIntro from "@/components/insight-intro"
 import StickyScrollRevealDemo from "@/components/sticky-scroll-reveal-demo"
+import HowItWorks from "@/components/how-it-works"
 
 export default function Page() {
   return (
@@ -79,7 +80,7 @@ export default function Page() {
 
         <BentoGridDemo />
         
-        <section id="how-it-works" className="relative bg-black py-20">
+        {/* <section id="how-it-works" className="relative bg-black py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <header className="mb-10 text-center">
               <h2 className="text-balance text-3xl font-semibold text-white md:text-5xl">How it works</h2>
@@ -89,7 +90,10 @@ export default function Page() {
             </header>
             <StickyScrollRevealDemo />
           </div>
-        </section>
+        </section> */}
+        {/* <section id="how-it-works" className="min-h-dvh "> */}
+        <HowItWorks />
+        {/* </section> */}
       </main>
     </SplashLoader>
   )
