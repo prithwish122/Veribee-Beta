@@ -4,23 +4,26 @@ import { motion } from "motion/react"
 import { ChevronRight, BarChart3, Users, User, BookOpen, Edit3 } from "lucide-react"
 import Image from "next/image"
 
+
 const Sidebar = ({
   onDashboard,
   onParticipate,
   onProfile,
   onReadDocs,
+  onCompose,
   currentView,
 }: {
   onDashboard: () => void
   onParticipate: () => void
   onProfile: () => void
   onReadDocs: () => void
+  onCompose: () => void
   currentView: string
 }) => {
   const composeButton = {
     title: "Compose",
     icon: Edit3,
-    onClick: () => console.log("[v0] Compose clicked"),
+    onClick: onCompose,
     isCompose: true,
   }
 
@@ -75,11 +78,10 @@ const Sidebar = ({
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.1 + 0.2 }}
-              className={`group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 ${
-                item.active
+              className={`group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 ${item.active
                   ? "bg-black/30 backdrop-blur-sm text-white border border-blue-400/50 shadow-lg shadow-blue-400/20"
                   : "text-gray-300 hover:text-white hover:bg-black/20 hover:backdrop-blur-sm hover:border hover:border-white/20"
-              }`}
+                }`}
               onClick={item.onClick}
             >
               <div className="flex items-center space-x-3">
