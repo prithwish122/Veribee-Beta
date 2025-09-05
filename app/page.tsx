@@ -2,36 +2,22 @@ import SplashLoader from "@/components/splash-loader"
 // import { SiteNavbar } from "@/components/site-navbar"
 import { GridBeams } from "@/components/magicui/grid-beams"
 import { SafariDemo } from "@/components/safari-demo"
-import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night-mode"
 import { BlueBlurBackground } from "@/components/blue-blur-background"
-import TrustedBy from "@/components/trusted-by"
 import BentoGridDemo from "@/components/bento-grid-demo"
 import InsightIntro from "@/components/insight-intro"
-import StickyScrollRevealDemo from "@/components/sticky-scroll-reveal-demo"
 import HowItWorks from "@/components/how-it-works"
 
 export default function Page() {
   return (
     <SplashLoader minDurationMs={1200}>
-      <main className="relative min-h-screen">
-        {/* Background image for first 130vh */}
-        <div className="absolute inset-0 h-[130vh] w-full -z-10">
-          <img
-            src="/images/bg-veribee.jpg"
-            alt="Background"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: "center" }}
-          />
-          {/* Gradient overlay for smooth transition to black */}
-          <div
-            className="absolute bottom-0 left-0 w-full h-[30vh] pointer-events-none"
-            style={{
-              background: "linear-gradient(to bottom, transparent 0%, black 100%)",
-            }}
-          />
+      <main className="relative min-h-screen overflow-x-hidden">
+        <div className="absolute inset-0 w-full -z-10">
+          <img src="/images/bg-veribee.jpg" alt="Background" className="w-full h-screen object-cover object-center" />
         </div>
-        {/* Black background for everything after 130vh */}
-        <div className="absolute top-[130vh] left-0 w-full min-h-[calc(100vh+100%)] bg-black -z-10" />
+
+        <div className="absolute top-[70vh] left-0 w-full h-[30vh] bg-gradient-to-b from-transparent via-black/30 to-black -z-10" />
+
+        <div className="absolute top-[100vh] left-0 w-full h-[300vh] bg-black -z-10" />
 
         {/* Navbar */}
         {/* <SiteNavbar /> */}
@@ -52,9 +38,7 @@ export default function Page() {
           />
 
           <div className="relative z-[2] w-full flex flex-col items-center">
-            <div className="w-full flex justify-center">
-              {/* <FloatingDockWithNightMode /> */}
-            </div>
+            <div className="w-full flex justify-center">{/* <FloatingDockWithNightMode /> */}</div>
 
             <div className="flex w-full flex-1 items-center justify-center">
               <header className="mt-[150px] text-center">
@@ -74,26 +58,15 @@ export default function Page() {
           </div>
         </section>
 
-        {/* TrustedBy section */}
-        {/* <TrustedBy /> */}
-        <InsightIntro className="mt-20 mb-20" />
+        <div className="relative bg-black">
+          {/* TrustedBy section */}
+          {/* <TrustedBy /> */}
+          <InsightIntro className="mt-20 mb-20" />
 
-        <BentoGridDemo />
-        
-        {/* <section id="how-it-works" className="relative bg-black py-20">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <header className="mb-10 text-center">
-              <h2 className="text-balance text-3xl font-semibold text-white md:text-5xl">How it works</h2>
-              <p className="mx-auto mt-3 max-w-2xl text-pretty text-sm text-white/70 md:text-base">
-                A quick look at the real-time, collaborative workflow.
-              </p>
-            </header>
-            <StickyScrollRevealDemo />
-          </div>
-        </section> */}
-        {/* <section id="how-it-works" className="min-h-dvh "> */}
-        <HowItWorks />
-        {/* </section> */}
+          <BentoGridDemo />
+
+          <HowItWorks />
+        </div>
       </main>
     </SplashLoader>
   )
