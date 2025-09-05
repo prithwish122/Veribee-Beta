@@ -1,4 +1,3 @@
-// "use client" is required for GSAP + DOM measurements
 "use client"
 
 import { useEffect, useMemo, useRef } from "react"
@@ -81,9 +80,7 @@ export function HowItWorks() {
   const tlRef = useRef<gsap.core.Timeline | null>(null)
   const stRef = useRef<ScrollTrigger | null>(null)
   const cleanupRef = useRef<() => void>(() => {})
-  const scrollSpeed = 4
 
-  // register GSAP plugins once
   useMemo(() => {
     if (typeof window !== "undefined") {
       gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
@@ -101,7 +98,6 @@ export function HowItWorks() {
       const getMaxWidth = () => sections.reduce((val, section) => val + section.offsetWidth, 0)
       let maxWidth = getMaxWidth()
 
-      // timeline driving horizontal translation
       const tl = gsap.timeline()
       tl.to(sections, {
         x: () => window.innerWidth - maxWidth,
@@ -110,17 +106,15 @@ export function HowItWorks() {
       })
       tlRef.current = tl
 
-      // build the directional snap helper
       const { snapFn, setRecentScroll } = directionalSnap(tl)
 
-      // ScrollTrigger controls: pin + scrub + snap across labels
       const st = ScrollTrigger.create({
         animation: tl,
         trigger: wrapperRef.current!,
         pin: true,
-        scrub: 1,
+        scrub: 0, // Set scrub to 0 for immediate 1:1 scroll response
         snap: { snapTo: snapFn as any, duration: 0.5 },
-        end: () => "+=" + maxWidth / scrollSpeed,
+        end: () => "+=" + (maxWidth - window.innerWidth), // Use exact horizontal distance
         invalidateOnRefresh: true,
       })
       stRef.current = st
@@ -132,7 +126,6 @@ export function HowItWorks() {
         const distance = maxWidth - window.innerWidth
         let position = 0
 
-        // clear old labels if any
         tl.clear()
         tl.add("label0", 0)
         tl.to(
@@ -145,28 +138,24 @@ export function HowItWorks() {
           0,
         )
 
-        // add labels for each section and wire nav clicks
         sections.forEach((section, i) => {
           const progress = position
           position += section.offsetWidth / distance
           tl.add(`label${i + 1}`, position)
 
           if (navItems[i]) {
-            // remove previous listeners to avoid duplicates
             navItems[i].onclick = null
             navItems[i].onclick = () => {
-              // tween page scroll to the computed progress position
               setRecentScroll(progress)
               gsap.to(window, {
-                scrollTo: (maxWidth / scrollSpeed) * progress,
+                scrollTo: (maxWidth - window.innerWidth) * progress,
                 duration: 1,
                 overwrite: "auto",
               })
             }
           }
         })
-        // refresh trigger end based on latest width
-        st.vars.end = () => "+=" + maxWidth / scrollSpeed
+        st.vars.end = () => "+=" + (maxWidth - window.innerWidth)
         st.refresh()
       }
 
@@ -192,49 +181,42 @@ export function HowItWorks() {
         How it works
       </h2>
 
-      {/* Wrapper: pinned, horizontal-scrolling sections */}
       <div ref={wrapperRef} className="wrapper relative flex h-screen flex-nowrap items-stretch bg-black">
-        {/* Sections */}
         {steps.map((step, idx) => {
-          const base = "section shrink-0 h-full flex items-center"
-          const widthClass = step.width === "large" ? "" : step.width === "small" ? "" : "w-screen"
-
-          const bg = idx % 2 === 0 ? "bg-neutral-950" : "bg-neutral-900"
-
-          const styleWidth =
-            step.width === "large"
-              ? { width: "150vw" as const }
-              : step.width === "small"
-                ? { width: "46rem" as const }
-                : undefined
+          const base = "section shrink-0 h-full flex items-center w-screen"
+          const bg = "bg-black"
 
           return (
-            <section
-              key={step.title}
-              className={`${base} ${widthClass} ${bg} border-r border-neutral-800`}
-              style={styleWidth}
-              aria-label={step.title}
-            >
-              <div className="relative mx-6 w-full md:mx-12 grid grid-cols-12 items-center gap-8">
-                {/* Left: ultra-large translucent numeral filling viewport height */}
-                <div className="col-span-12 md:col-span-6 flex items-center justify-start overflow-visible">
+            <section key={step.title} className={`${base} ${bg} border-r border-neutral-800`} aria-label={step.title}>
+              <div className="relative mx-6 w-full md:mx-12 grid grid-cols-12 items-center gap-2 md:gap-4">
+                <div className="col-span-12 md:col-span-5 flex items-center justify-start md:justify-end overflow-visible">
                   <span
                     aria-hidden="true"
-                    className="block select-none font-black leading-[0.7] text-white/10"
+                    className="block select-none font-black leading-[0.65] text-white/8 md:text-white/12"
                     style={{
-                      fontSize: "clamp(40rem, 105vh, 150rem)",
+                      fontSize: "clamp(32rem, 90vh, 120rem)",
                     }}
                   >
                     {idx + 1}
                   </span>
                 </div>
 
-                {/* Right: very large bold content beside the number */}
-                <div className="col-span-12 md:col-span-6 relative z-10 max-w-4xl">
-                  <h3 className="text-pretty font-black tracking-tight text-white text-5xl md:text-7xl lg:text-8xl">
+                <div className="col-span-12 md:col-span-7 relative z-10 max-w-4xl md:-ml-8 lg:-ml-12">
+                  <div className="mb-3 flex items-center gap-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/30 backdrop-blur-sm">
+                      <span className="text-sm font-bold text-black">{idx + 1}</span>
+                    </div>
+                    <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent"></div>
+                  </div>
+
+                  <h3 className="text-pretty font-black tracking-tight text-white text-4xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9]">
                     {step.title.replace(/^\d+\.\s*/, "")}
                   </h3>
-                  <p className="mt-6 text-xl leading-8 text-neutral-300 md:text-2xl md:leading-9">{step.description}</p>
+                  <p className="mt-4 md:mt-6 text-lg md:text-xl lg:text-2xl leading-relaxed text-neutral-200 max-w-2xl text-pretty">
+                    {step.description}
+                  </p>
+
+                  <div className="mt-6 md:mt-8 h-1 w-16 bg-gradient-to-r from-white/40 to-white/10 rounded-full"></div>
                 </div>
               </div>
             </section>
@@ -242,10 +224,11 @@ export function HowItWorks() {
         })}
       </div>
 
-      {/* Fixed Nav */}
-      <nav ref={navRef} aria-label="How it works navigation" className="fixed left-1/2 top-4 z-20 -translate-x-1/2">
-        
-      </nav>
+      <nav
+        ref={navRef}
+        aria-label="How it works navigation"
+        className="fixed left-1/2 top-4 z-20 -translate-x-1/2"
+      ></nav>
     </section>
   )
 }
