@@ -54,9 +54,13 @@ export default function DashboardPage() {
       case "docs":
         return <DocsView />
       case "compose":
-        return <Survey onBack={function (): void {
-          throw new Error("Function not implemented.")
-        }} />
+        return (
+          <Survey
+            onBack={(): void => {
+              throw new Error("Function not implemented.")
+            }}
+          />
+        )
     }
   }
 
@@ -74,12 +78,12 @@ export default function DashboardPage() {
       />
 
       {/* Main content area with relative positioning for popup */}
-      <main className={`${isCompose ? "ml-72 h-screen" : "ml-72 p-6"} relative`}>
+      <main className={`${isCompose ? "ml-72 h-screen" : "ml-72 p-6"} relative z-10`}>
         {renderCurrentView()}
 
         {/* Popup renders within the main content area with high z-index */}
         {showComposePopup && (
-          <div className="absolute inset-0 z-50">
+          <div className="absolute inset-0 z-40">
             <ComposeFormPopup onProceed={handleComposeFormProceed} onClose={handleComposeFormClose} />
           </div>
         )}

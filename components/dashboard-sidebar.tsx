@@ -38,24 +38,22 @@ const Sidebar = ({
 
   const { address, isConnected } = useAppKitAccount()
 
-
   const registerOnDB = async (address: string) => {
     const res = await fetch("/api/check-registered", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ address }),
-    });
-    const data = await res.json();
-    console.log("Check/Register response:", data);
+    })
+    const data = await res.json()
+    console.log("Check/Register response:", data)
   }
 
   useEffect(() => {
     if (isConnected && address) {
-      registerOnDB(address);
+      registerOnDB(address)
     }
     // Only run when wallet connects or address changes
-  }, [isConnected, address]);
-
+  }, [isConnected, address])
 
   return (
     <div className="fixed left-0 top-0 w-72 h-screen bg-black/40 backdrop-blur-xl border-r border-white/20 flex flex-col z-20 shadow-2xl">
@@ -106,10 +104,11 @@ const Sidebar = ({
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.1 + 0.2 }}
-              className={`group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 ${item.active
-                ? "bg-black/30 backdrop-blur-sm text-white border border-blue-400/50 shadow-lg shadow-blue-400/20"
-                : "text-gray-300 hover:text-white hover:bg-black/20 hover:backdrop-blur-sm hover:border hover:border-white/20"
-                }`}
+              className={`group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 ${
+                item.active
+                  ? "bg-black/30 backdrop-blur-sm text-white border border-blue-400/50 shadow-lg shadow-blue-400/20"
+                  : "text-gray-300 hover:text-white hover:bg-black/20 hover:backdrop-blur-sm hover:border hover:border-white/20"
+              }`}
               onClick={item.onClick}
             >
               <div className="flex items-center space-x-3">
@@ -123,19 +122,9 @@ const Sidebar = ({
       </nav>
 
       {/* Connect Wallet Button with higher z-index for modal */}
-      <div className="flex justify-center mb-10 relative z-50">
+      <div className="flex justify-center mb-10">
         <appkit-button balance="hide" />
       </div>
-
-      {/* Global style to ensure appkit modal appears on top */}
-      {/* <style jsx global>{`
-        appkit-modal,
-        appkit-modal *,
-        [data-appkit-modal],
-        [data-appkit-modal] * {
-          z-index: 9999 !important;
-        }
-      `}</style> */}
     </div>
   )
 }
