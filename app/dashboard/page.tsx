@@ -77,9 +77,11 @@ export default function DashboardPage() {
       <main className={`${isCompose ? "ml-72 h-screen" : "ml-72 p-6"} relative`}>
         {renderCurrentView()}
         
-        {/* Popup renders within the main content area */}
+        {/* Popup renders within the main content area with high z-index */}
         {showComposePopup && (
-          <ComposeFormPopup onProceed={handleComposeFormProceed} onClose={handleComposeFormClose} />
+          <div className="absolute inset-0 z-50">
+            <ComposeFormPopup onProceed={handleComposeFormProceed} onClose={handleComposeFormClose} />
+          </div>
         )}
       </main>
     </div>

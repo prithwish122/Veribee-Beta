@@ -14,7 +14,7 @@ interface ComposeFormProps {
   onClose: () => void
 }
 
-export default function ComposeForm({ onProceed, onClose }: ComposeFormProps) {
+export default function backComposeForm({ onProceed, onClose }: ComposeFormProps) {
   const [formData, setFormData] = useState({
     organizationName: "",
     gmail: "",
@@ -49,13 +49,13 @@ export default function ComposeForm({ onProceed, onClose }: ComposeFormProps) {
       <div className="max-w-4xl mx-auto p-6">
         {/* Header with Back Button */}
         <div className="flex items-center gap-4 mb-8">
-          <button
+          {/* <button
             onClick={onClose}
             className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             Back
-          </button>
+          </button> */}
           <div>
             <h1 className="text-3xl font-bold text-white">Create New Survey</h1>
             <p className="text-gray-400 mt-1">Fill in the details to create your research survey</p>
