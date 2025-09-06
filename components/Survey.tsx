@@ -48,7 +48,6 @@ function SurveyCreatorRenderComponent() {
 
     // ✅ Custom Publish function to mock API
     const handlePublish = async () => {
-        // console.log("Publishing survey with title:", creator.JSON);
         if (!creator.JSON.title || !creator) {
             setTitle(creator.JSON.title);
             alert("Please enter a title and build the form first!");
@@ -56,13 +55,31 @@ function SurveyCreatorRenderComponent() {
         }
 
         try {
-            const body = JSON.stringify({ title: creator.JSON.title, json: creator.JSON });
+            // 1. Fetch the last form's unique id
+            const lastRes = await fetch("/api/save-survey?last=1");
+            let newFormId = 1;
+            if (lastRes.ok) {
+                const lastData = await lastRes.json();
+                if (lastData && lastData.lastForm && typeof lastData.lastForm.formId === "number") {
+                    newFormId = lastData.lastForm.formId + 1;
+                }
+            }
+
+            // 2. Publish with new id and other details
+            const body = JSON.stringify({
+                formId: newFormId,
+                title: creator.JSON.title,
+                status: "Active",
+                description: creator.JSON.description || "",
+                amount: "245 responses",
+                time: "2m ago",
+                json: creator.JSON
+            });
             console.log("Publishing survey with body:", body);
-            // alert("Form ready to publish!");
             const res = await fetch("/api/save-survey", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ title: creator.JSON.title, json: creator.JSON }),
+                body,
             });
 
             const data = await res.json();
