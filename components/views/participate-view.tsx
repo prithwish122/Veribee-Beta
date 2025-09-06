@@ -6,8 +6,15 @@ import GlassButton from "@/components/glass-button"
 
 
 import { useEffect, useState } from "react"
+import dynamic from "next/dynamic"
+const SurveyComponent = dynamic(() => import("@/components/Survey-render"), { ssr: false });
 
-export default function ParticipateView() {
+
+type ParticipateViewProps = {
+  onSelectSurvey?: (survey: any) => void;
+};
+
+export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps) {
   const [surveys, setSurveys] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -40,7 +47,8 @@ export default function ParticipateView() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 shadow-2xl hover:border-blue-400/50 transition-all duration-200"
+              className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 shadow-2xl hover:border-blue-400/50 transition-all duration-200 cursor-pointer"
+              onClick={() => onSelectSurvey?.(survey)}
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-2">
@@ -64,10 +72,6 @@ export default function ParticipateView() {
                   <span className="text-gray-400">Participants:</span>
                   <span className="text-white">{survey.participants || Math.floor(Math.random() * 1000 + 100)}</span>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Form ID:</span>
-                  <span className="text-white">{survey.formId ?? "N/A"}</span>
-                </div>
               </div>
 
               <GlassButton className="w-full">Join Survey</GlassButton>
@@ -75,6 +79,8 @@ export default function ParticipateView() {
           ))
         )}
       </div>
+
+      {/* SurveyComponent is now rendered by the parent (dashboard) */}
     </motion.div>
   )
 }
