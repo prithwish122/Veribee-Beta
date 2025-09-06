@@ -7,26 +7,32 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
 import GsapSmoothScroller from "@/components/gsap-smooth-scroller"
 import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night-mode"
+import ContextProvider from "@/context"
+import { headers } from 'next/headers' // added
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Veribee | Beta",
+  description: "",
+  generator: "",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const headersObj = await headers();
+  const cookies = headersObj.get('cookie')
   return (
     <html lang="en" className="min-h-screen">
       <body className={`min-h-screen min-h-dvh bg-transparent font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={<div>Loading...</div>}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+             <ContextProvider cookies={cookies}>
+               {children}
+             </ContextProvider>
             
             {/* <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller> */}
-            {children}
           </ThemeProvider>
         </Suspense>
       </body>
