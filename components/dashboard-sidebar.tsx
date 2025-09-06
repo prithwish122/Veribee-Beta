@@ -102,7 +102,7 @@ const Sidebar = ({
 
       {/* Connect Wallet Button with higher z-index for modal */}
       <div className="flex justify-center mb-10 relative z-50">
-        <appkit-button balance="hide"/>
+        <appkit-button  balance="hide"/>
       </div>
 
       {/* Global style to ensure appkit modal appears on top */}
