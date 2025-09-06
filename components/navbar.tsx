@@ -37,7 +37,7 @@ export default function VeribeeNavbar() {
         </Link>
 
         {/* Navigation */}
-        <div className="flex items-center space-x-8 bg-black/80 backdrop-blur-md border border-blue-500/20 rounded-full px-8 py-3 ml-8">
+        <div className="flex items-center space-x-8 bg-black/80 backdrop-blur-md border border-blue-500/20 rounded-full px-8 py-3 ml-16">
           {/* Navigation Items */}
           {navItems.map((item, idx) => (
             <a
@@ -51,11 +51,11 @@ export default function VeribeeNavbar() {
         </div>
         
         {/* Launch App Button */}
-        <Link href="/dashboard">
+        <Link href="/dashboard" className="cursor-pointer">
           <Button
             hover="pointer"
             borderRadius="1.75rem"
-            className="bg-blue-950/80 backdrop-blur-md text-blue-100 border-blue-500/30 hover:border-blue-400/50 transition-all font-sans"
+            className="bg-blue-950/80 backdrop-blur-md text-blue-100 border-blue-500/30 hover:border-blue-400/50 transition-all font-sans cursor-pointer"
           >
             Launch App
           </Button>
