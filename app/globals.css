@@ -1,5 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url("/Packages/com.reown.appkit.unity/UI Toolkit/AppKit Base Theme.tss");
+
+* {
+    -unity-font-definition: resource("Custom Fonts/Comic Sans SDF Regular");
+}
 
 @custom-variant dark (&:is(.dark *));
 
