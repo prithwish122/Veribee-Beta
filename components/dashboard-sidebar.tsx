@@ -106,14 +106,14 @@ const Sidebar = ({
       </div>
 
       {/* Global style to ensure appkit modal appears on top */}
-      <style jsx global>{`
+      {/* <style jsx global>{`
         appkit-modal,
         appkit-modal *,
         [data-appkit-modal],
         [data-appkit-modal] * {
           z-index: 9999 !important;
         }
-      `}</style>
+      `}</style> */}
     </div>
   )
 }
