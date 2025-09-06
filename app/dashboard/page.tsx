@@ -18,7 +18,7 @@ export default function DashboardPage() {
     setShowComposePopup(false)
   }
   const handleParticipate = () => {
-    setCurrentView("participate") 
+    setCurrentView("participate")
     setShowComposePopup(false)
   }
   const handleProfile = () => {
@@ -42,7 +42,7 @@ export default function DashboardPage() {
   const handleComposeFormClose = () => {
     setShowComposePopup(false)
   }
-  
+
   const renderCurrentView = () => {
     switch (currentView) {
       case "dashboard":
@@ -56,12 +56,12 @@ export default function DashboardPage() {
       case "compose":
         return <Survey onBack={function (): void {
           throw new Error("Function not implemented.")
-        } } />
+        }} />
     }
   }
 
   const isCompose = currentView === "compose"
-  
+
   return (
     <div className="min-h-screen bg-black">
       <Sidebar
@@ -72,11 +72,11 @@ export default function DashboardPage() {
         onCompose={handleCompose}
         currentView={currentView}
       />
-      
+
       {/* Main content area with relative positioning for popup */}
       <main className={`${isCompose ? "ml-72 h-screen" : "ml-72 p-6"} relative`}>
         {renderCurrentView()}
-        
+
         {/* Popup renders within the main content area with high z-index */}
         {showComposePopup && (
           <div className="absolute inset-0 z-50">
