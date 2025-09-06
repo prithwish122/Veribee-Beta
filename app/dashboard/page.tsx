@@ -80,13 +80,11 @@ export default function DashboardPage() {
       case "compose":
         return (
           <Survey
-            onBack={() => {
-              setCurrentView("dashboard");
+            onBack={(): void => {
+              throw new Error("Function not implemented.")
             }}
           />
-        );
-      default:
-        return <DashboardView />; // fallback
+        )
     }
   };
 
@@ -103,73 +101,17 @@ export default function DashboardPage() {
         currentView={currentView}
       />
 
-      {/* Main content area */}
-      <main className={`${isCompose ? "ml-72 h-screen" : "ml-72 p-6"} relative`}>
-        {selectedSurvey && selectedSurvey.json ? (
-          <div className="w-full h-full bg-black/80 rounded-xl p-8 overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold text-white">
-                {selectedSurvey.title || "Survey"}
-              </h2>
-              <button
-                onClick={() => navWithSurveyConfirm(() => setSelectedSurvey(null))}
-                className="text-white text-xl"
-              >
-                &times;
-              </button>
-            </div>
-            <SurveyComponent json={selectedSurvey.json} />
-          </div>
-        ) : (
-          <>{renderCurrentView()}</>
-        )}
+      {/* Main content area with relative positioning for popup */}
+      <main className={`${isCompose ? "ml-72 h-screen" : "ml-72 p-6"} relative z-10`}>
+        {renderCurrentView()}
 
-        {/* Exit survey confirmation modal */}
-        {showExitSurveyConfirm && (
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60">
-            <div className="bg-white rounded-xl p-8 shadow-2xl max-w-sm w-full">
-              <h3 className="text-lg font-bold mb-4 text-gray-900">Exit Survey?</h3>
-              <p className="mb-6 text-gray-700">
-                You have an unfinished survey. Are you sure you want to exit? All progress
-                will be lost.
-              </p>
-              <div className="flex justify-end gap-4">
-                <button
-                  className="px-4 py-2 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
-                  onClick={() => {
-                    setShowExitSurveyConfirm(false);
-                    setPendingNav(null);
-                  }}
-                >
-                  Cancel
-                </button>
-                <button
-                  className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
-                  onClick={() => {
-                    setShowExitSurveyConfirm(false);
-                    setSelectedSurvey(null);
-                    if (pendingNav) pendingNav();
-                    setPendingNav(null);
-                  }}
-                >
-                  Yes, Exit
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Compose form popup */}
+        {/* Popup renders within the main content area with high z-index */}
         {showComposePopup && (
-          <div className="absolute inset-0 z-50">
-            <ComposeFormPopup
-              onProceed={handleComposeFormProceed}
-              onClose={handleComposeFormClose}
-            />
+          <div className="absolute inset-0 z-40">
+            <ComposeFormPopup onProceed={handleComposeFormProceed} onClose={handleComposeFormClose} />
           </div>
         )}
       </main>
     </div>
   );
 }
-  
