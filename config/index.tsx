@@ -36,25 +36,25 @@ if (!projectId) {
 // })
 
 const customNetwork = defineChain({
-  id: 1114,
+  id: 656476,
   caipNetworkId: 'eip155:123456789',
   chainNamespace: 'eip155',
-  name: 'Core Testnet 2',
+  name: 'EDU Chain Testnet',
   nativeCurrency: {
     decimals: 18,
-    name: 'CORE',
-    symbol: 'CORE',
+    name: 'EDU',
+    symbol: 'EDU',
   },
   rpcUrls: {
     default: {
-      http: ['https://rpc.test2.btcs.network'],
+      http: ['https://open-campus-codex-sepolia.drpc.org'],
       webSocket: [''],
     },
   },
   blockExplorers: {
     default: {
       name: 'Core Testnet Explorer',
-      url: 'https://scan.test2.btcs.network/',
+      url: 'https://opencampus-codex.blockscout.com',
     },
   },
   contracts: {
@@ -82,7 +82,7 @@ const modal = createAppKit({
   chainImages: {
     123456789: 'https://s2.coinmarketcap.com/static/img/coins/200x200/23254.png',
   },
-  projectId: 'c16459f41eb202b9ef6ea559ae21e2cb',
+  projectId: '147ac26d4875d31fbecca54c782a112d',
 })
 
 export const config = wagmiAdapter.wagmiConfig
