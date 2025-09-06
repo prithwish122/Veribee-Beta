@@ -6,6 +6,7 @@ import ParticipateView from "@/components/views/participate-view"
 import ProfileView from "@/components/views/profile-view"
 import DocsView from "@/components/views/docs-view"
 import DashboardView from "@/components/views/dashboard-view"
+import Survey from "@/components/Survey"
 
 export default function DashboardPage() {
   const [currentView, setCurrentView] = useState("dashboard")
@@ -26,6 +27,8 @@ export default function DashboardPage() {
         return <ProfileView />
       case "docs":
         return <DocsView />
+      case "compose":
+        return <Survey />
       default:
         return <DashboardView />
     }
