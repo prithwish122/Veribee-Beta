@@ -9,6 +9,7 @@ import GsapSmoothScroller from "@/components/gsap-smooth-scroller"
 import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night-mode"
 import ContextProvider from "@/context"
 import { headers } from 'next/headers' // added
+import Navbar from "@/components/navbar"
 
 export const metadata: Metadata = {
   title: "Veribee | Beta",
@@ -29,6 +30,7 @@ export default async function RootLayout({
         <Suspense fallback={<div>Loading...</div>}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
              <ContextProvider cookies={cookies}>
+              {/* <Navbar /> */}
                {children}
              </ContextProvider>
             

@@ -3,14 +3,14 @@
 import * as React from "react"
 import { useTheme } from "next-themes"
 import { FloatingDock } from "@/components/ui/floating-dock"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import {
-  IconBrandGithub,
-  IconBrandX,
-  IconExchange,
   IconHome,
-  IconNewSection,
   IconTerminal2,
-  IconMoonStars,
+  IconNewSection,
+  IconFileText,
+  IconRocket,
 } from "@tabler/icons-react"
 
 export default function FloatingDockWithNightMode({
@@ -22,14 +22,6 @@ export default function FloatingDockWithNightMode({
 }) {
   const { theme, setTheme } = useTheme()
 
-  const toggleTheme = React.useCallback(
-    (e?: React.MouseEvent) => {
-      if (e) e.preventDefault()
-      setTheme(theme === "dark" ? "light" : "dark")
-    },
-    [theme, setTheme],
-  )
-
   const items = [
     {
       title: "Home",
@@ -37,43 +29,49 @@ export default function FloatingDockWithNightMode({
       href: "#",
     },
     {
-      title: "Products",
+      title: "Features",
       icon: <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
+      href: "#features",
     },
     {
-      title: "Components",
+      title: "How it Works",
       icon: <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
+      href: "#how-it-works",
     },
     {
-      title: "Aceternity UI",
-      icon: <img src="https://assets.aceternity.com/logo-dark.png" width={20} height={20} alt="Aceternity Logo" />,
-      href: "#",
-    },
-    {
-      title: "Changelog",
-      icon: <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
-    },
-    {
-      title: "Twitter",
-      icon: <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
-    },
-    {
-      title: "GitHub",
-      icon: <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
-    },
-    {
-      title: theme === "dark" ? "Light Mode" : "Dark Mode",
-      icon: <IconMoonStars className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      onClick: toggleTheme,
+      title: "Read Docs",
+      icon: <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#docs",
     },
   ] as const
 
-  return <FloatingDock items={items as any} desktopClassName={className} mobileClassName={mobileClassName} />
+  return (
+    <div className="flex items-center">
+      {/* Veribee Logo on the left */}
+      <div className="mr-[100px]"> {/* 100px gap from logo to dock */}
+        <Link href="/" className="flex items-center space-x-2">
+          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+            <IconRocket className="h-4 w-4 text-white" />
+          </div>
+          <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            Veribee
+          </span>
+        </Link>
+      </div>
+      
+      <FloatingDock items={items as any} desktopClassName={className} mobileClassName={mobileClassName} />
+      
+      <div className="ml-[100px]"> {/* 100px gap from dock to launch app button */}
+        <Link href="/dashboard">
+          <Button
+            className="bg-blue-950/80 backdrop-blur-md text-blue-100 border border-blue-500/30 hover:border-blue-400/50 transition-all font-sans px-6 py-3 text-base whitespace-nowrap rounded-[1.75rem]"
+          >
+            Launch App
+          </Button>
+        </Link>
+      </div>
+    </div>
+  )
 }
 
 export { FloatingDockWithNightMode }

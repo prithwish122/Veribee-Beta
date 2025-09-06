@@ -7,13 +7,16 @@ import BentoGridDemo from "@/components/bento-grid-demo"
 import InsightIntro from "@/components/insight-intro"
 import HowItWorks from "@/components/how-it-works"
 import FloatingDockWithNightMode from "@/components/floating-dock-with-night-mode"
+import { NavbarDock } from "@/components/navbar-dock"
+import Navbar from "@/components/navbar"
 
 export default function Page() {
   return (
     <SplashLoader minDurationMs={1200}>
       <main className="relative min-h-screen overflow-x-hidden">
         <div className="sticky top-4 md:top-6 z-[60] w-full flex justify-center pt-0">
-              <FloatingDockWithNightMode />
+              {/* <FloatingDockWithNightMode />    */}
+              <Navbar />
             </div>
         <div className="absolute inset-0 w-full -z-10">
           <img src="/images/bg-veribee.jpg" alt="Background" className="w-full h-screen object-cover object-center" />

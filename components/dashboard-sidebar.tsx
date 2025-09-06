@@ -89,7 +89,9 @@ const Sidebar = ({
                 <span className="text-sm font-medium">{item.title}</span>
               </div>
               {item.active && <ChevronRight className="w-4 h-4 text-blue-400" />}
+              <appkit-button />
             </motion.div>
+            
           ))}
         </div>
       </nav>
