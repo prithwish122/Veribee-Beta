@@ -7,16 +7,42 @@ import ProfileView from "@/components/views/profile-view"
 import DocsView from "@/components/views/docs-view"
 import DashboardView from "@/components/views/dashboard-view"
 import Survey from "@/components/Survey"
+import ComposeFormPopup from "@/components/dashboard/compose-form-popup"
 
 export default function DashboardPage() {
-  const [currentView, setCurrentView] = useState("dashboard")
+  const [currentView, setCurrentView] = useState("")
+  const [showComposePopup, setShowComposePopup] = useState(false)
 
-  const handleDashboard = () => setCurrentView("dashboard")
-  const handleParticipate = () => setCurrentView("participate")
-  const handleProfile = () => setCurrentView("profile")
-  const handleReadDocs = () => setCurrentView("docs")
-  const handleCompose = () => setCurrentView("compose")
+  const handleDashboard = () => {
+    setCurrentView("dashboard")
+    setShowComposePopup(false)
+  }
+  const handleParticipate = () => {
+    setCurrentView("participate") 
+    setShowComposePopup(false)
+  }
+  const handleProfile = () => {
+    setCurrentView("profile")
+    setShowComposePopup(false)
+  }
+  const handleReadDocs = () => {
+    setCurrentView("docs")
+    setShowComposePopup(false)
+  }
 
+  const handleCompose = () => {
+    setShowComposePopup(true)
+  }
+
+  const handleComposeFormProceed = () => {
+    setShowComposePopup(false)
+    setCurrentView("compose")
+  }
+
+  const handleComposeFormClose = () => {
+    setShowComposePopup(false)
+  }
+  
   const renderCurrentView = () => {
     switch (currentView) {
       case "dashboard":
@@ -28,13 +54,14 @@ export default function DashboardPage() {
       case "docs":
         return <DocsView />
       case "compose":
-        return <Survey />
-      default:
-        return <DashboardView />
+        return <Survey onBack={function (): void {
+          throw new Error("Function not implemented.")
+        } } />
     }
   }
 
   const isCompose = currentView === "compose"
+  
   return (
     <div className="min-h-screen bg-black">
       <Sidebar
@@ -45,8 +72,16 @@ export default function DashboardPage() {
         onCompose={handleCompose}
         currentView={currentView}
       />
-
-      <main className={isCompose ? "ml-72 h-screen" : "ml-72 p-6"}>{renderCurrentView()}</main>
+      
+      {/* Main content area with relative positioning for popup */}
+      <main className={`${isCompose ? "ml-72 h-screen" : "ml-72 p-6"} relative`}>
+        {renderCurrentView()}
+        
+        {/* Popup renders within the main content area */}
+        {showComposePopup && (
+          <ComposeFormPopup onProceed={handleComposeFormProceed} onClose={handleComposeFormClose} />
+        )}
+      </main>
     </div>
   )
 }
