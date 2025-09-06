@@ -13,8 +13,10 @@ import Navbar from "@/components/navbar"
 
 export const metadata: Metadata = {
   title: "Veribee | Beta",
-  description: "",
-  generator: "",
+  description: "AI-Powered Survey Platform for Rapid Insights",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default async function RootLayout({

@@ -3,6 +3,7 @@
 import { motion } from "motion/react"
 import { ChevronRight, BarChart3, Users, User, BookOpen, Edit3 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 const Sidebar = ({
   onDashboard,
@@ -43,16 +44,18 @@ const Sidebar = ({
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center space-x-3 px-2"
           >
-            <div className="w-8 h-8 relative">
-              <Image
-                src="/images/veribee.png"
-                alt="Veribee Logo"
-                width={32}
-                height={32}
-                className="w-full h-full object-contain filter brightness-0 invert"
-              />
-            </div>
-            <span className="text-white font-bold text-xl">Veribee</span>
+             <Link href="/" className="flex items-center space-x-3">
+      <div className="w-8 h-8 relative">
+        <Image
+          src="/images/veribee.png"
+          alt="Veribee Logo"
+          width={32}
+          height={32}
+          className="w-full h-full object-contain filter brightness-0 invert"
+        />
+      </div>
+      <span className="text-white font-bold text-xl">Veribee</span>
+    </Link>
           </motion.div>
         </div>
 
@@ -97,10 +100,20 @@ const Sidebar = ({
         </div>
       </nav>
 
-      {/* Connect Wallet Button (centered + moved up + normal style) */}
-      <div className="flex justify-center mb-10">
+      {/* Connect Wallet Button with higher z-index for modal */}
+      <div className="flex justify-center mb-10 relative z-50">
         <appkit-button balance="hide"/>
       </div>
+
+      {/* Global style to ensure appkit modal appears on top */}
+      <style jsx global>{`
+        appkit-modal,
+        appkit-modal *,
+        [data-appkit-modal],
+        [data-appkit-modal] * {
+          z-index: 9999 !important;
+        }
+      `}</style>
     </div>
   )
 }
