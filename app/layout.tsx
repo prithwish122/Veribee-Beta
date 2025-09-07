@@ -10,7 +10,11 @@ import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night
 import ContextProvider from "@/context"
 import { headers } from 'next/headers' // added
 import Navbar from "@/components/navbar"
+
+import { Toaster } from "@/components/ui/toaster"
+
 import  OCConnectWrapper  from "@/components/OCConnectWrapper"
+
 
 export const metadata: Metadata = {
   title: "Veribee | Beta",
@@ -40,9 +44,12 @@ export default async function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
              <ContextProvider cookies={cookies}>
               {/* <Navbar /> */}
+
                <OCConnectWrapper opts={opts} sandboxMode={true}>
                 {children}
+                 <Toaster />
               </OCConnectWrapper>
+               
              </ContextProvider>
             
             {/* <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller> */}
