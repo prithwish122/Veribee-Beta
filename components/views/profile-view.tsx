@@ -379,7 +379,25 @@ export default function ProfileView() {
         </motion.div>
       )}
 
-      {!authState.isAuthenticated && (
+      {!isInitialized && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-yellow-500/10 backdrop-blur-xl rounded-2xl p-6 border border-yellow-400/20 shadow-2xl"
+        >
+          <div className="flex items-center space-x-3">
+            <AlertCircle className="w-6 h-6 text-yellow-400" />
+            <div>
+              <h3 className="text-lg font-bold text-white mb-1">OCID Initializing</h3>
+              <p className="text-gray-300 text-sm">
+                OCID authentication is loading. Some features may be limited until initialization completes.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {isInitialized && !authState.isAuthenticated && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
