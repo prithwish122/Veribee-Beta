@@ -10,6 +10,7 @@ import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night
 import ContextProvider from "@/context"
 import { headers } from 'next/headers' // added
 import Navbar from "@/components/navbar"
+import  OCConnectWrapper  from "@/components/OCConnectWrapper"
 
 export const metadata: Metadata = {
   title: "Veribee | Beta",
@@ -26,6 +27,12 @@ export default async function RootLayout({
 }>) {
   const headersObj = await headers();
   const cookies = headersObj.get('cookie')
+
+  const opts = {
+    clientId: '<Does_Not_Matter_For_Sandbox_mode>',    
+    redirectUri: 'http://localhost:3000/redirect', // Adjust this URL
+    referralCode: 'PARTNER6', // Assign partner code
+  };
   return (
     <html lang="en" className="min-h-screen">
       <body className={`min-h-screen min-h-dvh bg-transparent font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
@@ -33,7 +40,9 @@ export default async function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
              <ContextProvider cookies={cookies}>
               {/* <Navbar /> */}
-               {children}
+               <OCConnectWrapper opts={opts} sandboxMode={true}>
+                {children}
+              </OCConnectWrapper>
              </ContextProvider>
             
             {/* <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller> */}
