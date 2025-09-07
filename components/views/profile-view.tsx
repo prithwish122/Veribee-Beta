@@ -5,15 +5,36 @@ import { motion } from "framer-motion"
 import GlassButton from "@/components/glass-button"
 import { useAppKitAccount } from "@reown/appkit/react"
 import { useEffect, useState } from "react"
+import AuthButton from "../AuthButton"
+import { LoginButton, useOCAuth } from "@opencampus/ocid-connect-js"
 
 export default function ProfileView() {
   const { address } = useAppKitAccount();
+  const { isInitialized, authState, ocAuth } = useOCAuth();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
     location: "",
   });
+
+  // Add loading state for OCID initialization
+  if (!isInitialized) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-white">Loading OCID...</div>
+      </div>
+    );
+  }
+
+  // Handle OCID error state
+  if (authState.error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-red-400">Error: {authState.error.message}</div>
+      </div>
+    );
+  }
 
   // Fetch user info on mount/address change using GET /api/profiles/[address]
   useEffect(() => {
@@ -59,6 +80,15 @@ export default function ProfileView() {
 
   const handleOcidConnect = () => {
     console.log("Connecting to Ocid...");
+  };
+
+  const handleOcidDisconnect = async () => {
+    try {
+      await ocAuth.logout();
+      console.log("Disconnected from OCID");
+    } catch (error) {
+      console.error("Error disconnecting from OCID:", error);
+    }
   };
 
   const handleFollowTwitter = () => {
@@ -149,6 +179,38 @@ export default function ProfileView() {
             </div>
           </motion.div>
 
+          {/* OCID Authentication Status Card */}
+          {authState.isAuthenticated && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-2xl"
+            >
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="p-2 bg-green-500/20 rounded-lg">
+                  <User className="w-6 h-6 text-green-400" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white">OCID Account</h2>
+                  <p className="text-gray-400 text-sm">Your connected OCID information</p>
+                </div>
+              </div>
+
+              <div className="bg-black/20 rounded-lg p-4 mb-4">
+                <pre className="text-green-400 text-sm whitespace-pre-wrap overflow-auto">
+                  {JSON.stringify(ocAuth.getAuthState(), null, 2)}
+                </pre>
+              </div>
+
+              <div className="flex justify-end">
+                <GlassButton onClick={handleOcidDisconnect} className="px-6">
+                  Disconnect OCID
+                </GlassButton>
+              </div>
+            </motion.div>
+          )}
+
           {/* NFT Collection Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -230,17 +292,34 @@ export default function ProfileView() {
                   <Link className="w-5 h-5 text-green-400" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-white">Ocid</h3>
-                  <p className="text-gray-400 text-xs">Not connected</p>
+                  <h3 className="text-lg font-bold text-white">OCID</h3>
+                  <p className="text-gray-400 text-xs">
+                    {authState.isAuthenticated ? "Connected" : "Not connected"}
+                  </p>
                 </div>
-                <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                <div className={`w-2 h-2 rounded-full ${
+                  authState.isAuthenticated ? "bg-green-400" : "bg-red-400"
+                }`}></div>
               </div>
               <p className="text-gray-300 text-sm mb-4">
-                Connect with Ocid for advanced integrations.
+                {authState.isAuthenticated 
+                  ? "Your OCID account is connected and ready to use."
+                  : "Connect with OCID for advanced integrations."
+                }
               </p>
-              <GlassButton onClick={handleOcidConnect} className="w-full text-sm">
-                Connect Now
-              </GlassButton>
+              
+              {authState.isAuthenticated ? (
+                <div className="space-y-2">
+                  <div className="text-xs text-gray-400 break-all">
+                    Connected as: {ocAuth.getAuthState()?.idToken?.edu_username || 'User'}
+                  </div>
+                  <GlassButton onClick={handleOcidDisconnect} className="w-full text-sm">
+                    Disconnect
+                  </GlassButton>
+                </div>
+              ) : (
+                <LoginButton />
+              )}
             </motion.div>
           </div>
 
@@ -281,7 +360,7 @@ export default function ProfileView() {
         </div>
       </div>
 
-      {/* Connection Status Alert */}
+      {/* Connection Status Alerts */}
       {!address && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -294,6 +373,42 @@ export default function ProfileView() {
               <h3 className="text-lg font-bold text-white mb-1">Wallet Not Connected</h3>
               <p className="text-gray-300 text-sm">
                 Please connect your wallet to access and update your profile information.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {!isInitialized && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-yellow-500/10 backdrop-blur-xl rounded-2xl p-6 border border-yellow-400/20 shadow-2xl"
+        >
+          <div className="flex items-center space-x-3">
+            <AlertCircle className="w-6 h-6 text-yellow-400" />
+            <div>
+              <h3 className="text-lg font-bold text-white mb-1">OCID Initializing</h3>
+              <p className="text-gray-300 text-sm">
+                OCID authentication is loading. Some features may be limited until initialization completes.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {isInitialized && !authState.isAuthenticated && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-blue-500/10 backdrop-blur-xl rounded-2xl p-6 border border-blue-400/20 shadow-2xl"
+        >
+          <div className="flex items-center space-x-3">
+            <Link className="w-6 h-6 text-blue-400" />
+            <div>
+              <h3 className="text-lg font-bold text-white mb-1">OCID Not Connected</h3>
+              <p className="text-gray-300 text-sm">
+                Connect your OCID account to unlock additional features and integrations.
               </p>
             </div>
           </div>
