@@ -79,7 +79,7 @@ export default function DashboardPage() {
     if (selectedSurvey) {
       return (
         <SurveyComponent
-          json={selectedSurvey.json}
+          json={{ ...selectedSurvey.json, formId: selectedSurvey.formId }}
           onComplete={() => setSelectedSurvey(null)}
         />
       );
@@ -166,3 +166,4 @@ export default function DashboardPage() {
     </div>
   );
 }
+''
