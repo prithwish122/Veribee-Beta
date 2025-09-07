@@ -9,6 +9,7 @@ import HowItWorks from "@/components/how-it-works"
 import FloatingDockWithNightMode from "@/components/floating-dock-with-night-mode"
 import { NavbarDock } from "@/components/navbar-dock"
 import Navbar from "@/components/navbar"
+import WhyChoose from "@/components/landing/WhyChooseus"
 
 export default function Page() {
   return (
@@ -68,7 +69,8 @@ export default function Page() {
         <div className="relative bg-black">
           {/* TrustedBy section */}
           {/* <TrustedBy /> */}
-          <InsightIntro className="mt-20 mb-20" />
+          {/* <InsightIntro className="mt-20 mb-20" /> */}
+          <WhyChoose />
 
           <BentoGridDemo />
 
