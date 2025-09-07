@@ -1,11 +1,16 @@
 "use client"
 
+import { Users } from "lucide-react"
 import { motion } from "framer-motion"
 
 interface Survey {
   id: string
   title: string
   status: "Ongoing" | "Ended"
+  description?: string
+  reward?: string
+  participants?: number
+  timeLeft?: string
 }
 
 interface SurveyListProps {
@@ -16,33 +21,54 @@ interface SurveyListProps {
 export default function SurveyList({ surveys, onSurveySelect }: SurveyListProps) {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
-      <h3 className="text-2xl font-bold text-white mb-6">Surveys</h3>
-      <div className="space-y-4">
-        {surveys.map((survey, index) => (
-          <motion.div
-            key={survey.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            onClick={() => onSurveySelect(survey.id)}
-            className="w-full bg-black/40 backdrop-blur-xl rounded-2xl p-6 border border-white/20 shadow-2xl hover:border-blue-400/50 transition-all duration-200 cursor-pointer hover:bg-black/30"
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.99 }}
-          >
-            <div className="flex items-center justify-between">
-              <h4 className="text-xl font-bold text-white">{survey.title}</h4>
-              <span
-                className={`px-4 py-2 rounded-full text-sm font-medium text-white ${
-                  survey.status === "Ongoing"
-                    ? "bg-green-600 border border-green-500"
-                    : "bg-red-600 border border-red-500"
-                }`}
-              >
-                {survey.status}
-              </span>
-            </div>
-          </motion.div>
-        ))}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-white mb-2">Participate in Surveys</h1>
+        <p className="text-blue-200">Join ongoing research studies and earn rewards</p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+        {surveys.length === 0 ? (
+          <div className="text-gray-400 col-span-full">No surveys found.</div>
+        ) : (
+          surveys.map((survey, index) => (
+            <motion.div
+              key={survey.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 shadow-2xl hover:border-blue-400/50 transition-all duration-200 cursor-pointer"
+              onClick={() => onSurveySelect(survey.id)}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-2">
+                  <Users className="w-5 h-5 text-blue-400" />
+                  <span className="text-blue-400 text-sm font-medium">{survey.status === "Ongoing" ? "Active" : "Ended"}</span>
+                </div>
+                <div className="bg-blue-400/20 text-blue-300 px-2 py-1 rounded-full text-xs">
+                  {survey.timeLeft || "N/A"} left
+                </div>
+              </div>
+
+              <h3 className="text-white font-bold text-lg mb-2">{survey.title || "Untitled Survey"}</h3>
+              <p className="text-gray-300 text-sm mb-4">{survey.description || "No description."}</p>
+
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">Reward:</span>
+                  <span className="text-blue-400 font-medium">{survey.reward || "50 Mini Tokens"}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">Participants:</span>
+                  <span className="text-white">{survey.participants || Math.floor(Math.random() * 1000 + 100)}</span>
+                </div>
+              </div>
+
+              <button className="w-full bg-white/10 backdrop-blur-xl border border-white/20 text-white px-4 py-2 rounded-xl hover:bg-white/20 transition-all duration-200">
+                View Analytics
+              </button>
+            </motion.div>
+          ))
+        )}
       </div>
     </motion.div>
   )
