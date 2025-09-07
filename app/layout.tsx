@@ -10,6 +10,7 @@ import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night
 import ContextProvider from "@/context"
 import { headers } from 'next/headers' // added
 import Navbar from "@/components/navbar"
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: "Veribee | Beta",
@@ -34,6 +35,7 @@ export default async function RootLayout({
              <ContextProvider cookies={cookies}>
               {/* <Navbar /> */}
                {children}
+               <Toaster />
              </ContextProvider>
             
             {/* <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller> */}
