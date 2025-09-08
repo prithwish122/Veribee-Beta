@@ -9,35 +9,36 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "Is Zeyo available for all blockchains?",
-      answer:
-        "Zeyo currently supports zkSync Era and Scroll networks, with plans to expand to more privacy-focused chains. You can track your DeFi performance across all supported networks.",
-    },
-    {
-      question: "How does zero-knowledge proof work?",
-      answer:
-        "Zero-knowledge proofs allow you to prove you know something without revealing what you know. In Zeyo, you can prove your trading performance or portfolio value without exposing your actual balances or transaction history.",
-    },
-    {
-      question: "Can I try Zeyo before committing to a plan?",
-      answer:
-        "Yes! Zeyo offers a demo mode where you can explore the platform features and simulate trading without connecting real funds. This allows you to familiarize yourself with the privacy features.",
-    },
-    {
-      question: "What's the difference between Basic and Pro plans?",
-      answer:
-        "The Basic plan includes essential privacy features and basic zkProof generation. The Pro plan offers advanced analytics, unlimited zkBadge generation, priority support, and access to institutional-grade privacy tools.",
-    },
-    {
-      question: "Can I cancel my plan anytime?",
-      answer:
-        "Yes, you can cancel your subscription at any time. Your account will remain active until the end of your current billing period, and you'll retain access to your generated zkProofs and badges.",
-    },
-    {
-      question: "Is customer support available?",
-      answer:
-        "We provide 24/7 customer support through our help center, documentation, and community forums. Pro plan users get priority support with faster response times and dedicated assistance.",
-    },
+  question: "What is Veribee?",
+  answer:
+    "Veribee is a Web3 survey platform that combines AI analysis, smart contracts, and OCID-based identity to ensure fair, authentic, and privacy-preserving responses.",
+},
+{
+  question: "How does Veribee prevent spam or fake responses?",
+  answer:
+    "Veribee uses OCID identity verification and AI-powered validation to filter out spam, duplicates, and low-quality answers before rewards are released.",
+},
+{
+  question: "How are rewards distributed?",
+  answer:
+    "Rewards are locked in escrow smart contracts and released automatically only when AI verifies that the response meets the required quality standards.",
+},
+{
+  question: "Can developers submit code in surveys?",
+  answer:
+    "Yes! Veribee supports code editor inputs, making it perfect for technical surveys, hackathons, and developer feedback collection.",
+},
+{
+  question: "Is my data private on Veribee?",
+  answer:
+    "Absolutely. Veribee leverages OCID authentication and blockchain technology to keep your identity private while maintaining authenticity.",
+},
+{
+  question: "Who can use Veribee?",
+  answer:
+    "Anyone—from DAOs and startups to educators and hackathon organizers—can use Veribee to collect secure, high-quality feedback.",
+}
+
   ]
 
   const toggleItem = (index: number) => {
