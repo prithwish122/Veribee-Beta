@@ -1,3 +1,4 @@
+// This saves or updates additional user profile info based on their address
 import { NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
 

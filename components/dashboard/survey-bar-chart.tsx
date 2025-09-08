@@ -4,10 +4,39 @@ import { motion } from "framer-motion"
 import { TrendingUp } from "lucide-react"
 
 export function SurveyBarChart() {
-  const responseData = Array.from({ length: 30 }, (_, i) => ({
-    day: i,
-    responses: 50 + Math.sin(i * 0.3) * 20 + Math.random() * 15,
-  }))
+  // Mock data: Replace with API call in future
+  const responseData = [
+    { day: 0, responses: 62 },
+    { day: 1, responses: 68 },
+    { day: 2, responses: 73 },
+    { day: 3, responses: 80 },
+    { day: 4, responses: 77 },
+    { day: 5, responses: 70 },
+    { day: 6, responses: 65 },
+    { day: 7, responses: 60 },
+    { day: 8, responses: 58 },
+    { day: 9, responses: 61 },
+    { day: 10, responses: 66 },
+    { day: 11, responses: 72 },
+    { day: 12, responses: 78 },
+    { day: 13, responses: 81 },
+    { day: 14, responses: 79 },
+    { day: 15, responses: 74 },
+    { day: 16, responses: 69 },
+    { day: 17, responses: 65 },
+    { day: 18, responses: 63 },
+    { day: 19, responses: 67 },
+    { day: 20, responses: 71 },
+    { day: 21, responses: 76 },
+    { day: 22, responses: 80 },
+    { day: 23, responses: 83 },
+    { day: 24, responses: 81 },
+    { day: 25, responses: 77 },
+    { day: 26, responses: 72 },
+    { day: 27, responses: 68 },
+    { day: 28, responses: 65 },
+    { day: 29, responses: 63 },
+  ];
 
   return (
     <motion.div

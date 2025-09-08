@@ -1,6 +1,7 @@
-
+// This endpoints retrieves all forms from the "forms" collection
 import { NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
+
 
 export async function GET() {
 	try {

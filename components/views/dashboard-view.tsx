@@ -1,49 +1,62 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import SurveyList from "@/components/dashboard/survey-list"
 import SurveyAnalytics from "@/components/dashboard/survey-analytics"
 
-const mockSurveys = [
-  {
-    id: "consumer-behavior",
-    title: "Consumer Behavior Study",
-    status: "Ongoing" as const,
-  },
-  {
-    id: "healthcare-satisfaction",
-    title: "Healthcare Satisfaction Survey",
-    status: "Ongoing" as const,
-  },
-  {
-    id: "tech-adoption",
-    title: "Technology Adoption Research",
-    status: "Ended" as const,
-  },
-  {
-    id: "market-research",
-    title: "Market Research Analysis",
-    status: "Ongoing" as const,
-  },
-]
+type Survey = {
+  id: string
+  title: string
+  status: "Ongoing" | "Ended"
+}
 
 export default function DashboardView() {
+  const [surveys, setSurveys] = useState<Survey[]>([])
   const [selectedSurvey, setSelectedSurvey] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    fetch("/api/forms")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch forms")
+        return res.json()
+      })
+      .then((data) => {
+        if (data?.forms) {
+          setSurveys(data.forms)
+        }
+      })
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false))
+  }, [])
 
   if (selectedSurvey) {
-    const survey = mockSurveys.find((s) => s.id === selectedSurvey)
-    return <SurveyAnalytics survey={survey} onBack={() => setSelectedSurvey(null)} />
+    const survey = surveys.find((s) => s.id === selectedSurvey)
+    return (
+      <SurveyAnalytics survey={survey} onBack={() => setSelectedSurvey(null)} />
+    )
   }
 
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="space-y-6"
+    >
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">Research Dashboard</h1>
-        <p className="text-blue-200">Manage your research forms and analyze responses</p>
+        <p className="text-blue-200">
+          Manage your research forms and analyze responses
+        </p>
       </div>
 
-      <SurveyList surveys={mockSurveys} onSurveySelect={setSelectedSurvey} />
+      {loading && <p className="text-blue-200">Loading surveys...</p>}
+      {error && <p className="text-red-400">{error}</p>}
+      {!loading && !error && (
+        <SurveyList surveys={surveys} onSurveySelect={setSelectedSurvey} />
+      )}
     </motion.div>
   )
 }

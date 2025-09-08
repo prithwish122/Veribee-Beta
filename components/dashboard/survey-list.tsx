@@ -11,6 +11,8 @@ interface Survey {
   reward?: string
   participants?: number
   timeLeft?: string
+  formId?: number | string
+  releaseDate?: string // ISO date string
 }
 
 interface SurveyListProps {
@@ -40,12 +42,21 @@ export default function SurveyList({ surveys, onSurveySelect }: SurveyListProps)
               onClick={() => onSurveySelect(survey.id)}
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-2">
-                  <Users className="w-5 h-5 text-blue-400" />
-                  <span className="text-blue-400 text-sm font-medium">{survey.status === "Ongoing" ? "Active" : "Ended"}</span>
-                </div>
                 <div className="bg-blue-400/20 text-blue-300 px-2 py-1 rounded-full text-xs">
-                  {survey.timeLeft || "N/A"} left
+                  {survey.status === "Ongoing"
+                    ? (survey.timeLeft
+                      ? survey.timeLeft + ' left'
+                      : (survey.releaseDate
+                        ? (() => {
+                          // Calculate days left (assuming 30 days duration)
+                          const release = new Date(survey.releaseDate);
+                          const today = new Date();
+                          const daysSinceRelease = Math.floor((today.getTime() - release.getTime()) / (1000 * 60 * 60 * 24));
+                          const daysLeft = Math.max(0, 30 - daysSinceRelease);
+                          return daysLeft > 0 ? daysLeft + ' days left' : 'Ends today';
+                        })()
+                        : '30 days left'))
+                    : 'Ended'}
                 </div>
               </div>
 
@@ -60,6 +71,10 @@ export default function SurveyList({ surveys, onSurveySelect }: SurveyListProps)
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-400">Participants:</span>
                   <span className="text-white">{survey.participants || Math.floor(Math.random() * 1000 + 100)}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">FormId:</span>
+                  <span className="text-white">{survey.formId || 'N/A'}</span>
                 </div>
               </div>
 
