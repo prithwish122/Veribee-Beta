@@ -1,13 +1,22 @@
 import type * as React from "react"
 import { cn } from "@/lib/utils"
+import src from "gsap/src"
 
 type SafariProps = {
   url?: string
   className?: string
   children?: React.ReactNode
+  videoSrc?: string
+  videoProps?: React.VideoHTMLAttributes<HTMLVideoElement>
 }
 
-export function Safari({ url = "magicui.design", className, children }: SafariProps) {
+export function Safari({ 
+  url = "veribee.tech", 
+  className, 
+  children,
+  videoSrc,
+  videoProps 
+}: SafariProps) {
   return (
     <div
       className={cn("w-full overflow-hidden rounded-xl border bg-background shadow-sm", className)}
@@ -31,7 +40,14 @@ export function Safari({ url = "magicui.design", className, children }: SafariPr
 
       {/* Content area */}
       <div className="aspect-[16/10] w-full bg-muted/30">
-        {children ? (
+        {src ? (
+          <img 
+            src=""
+            // alt="Dashboard Preview"
+            className="h-[800p] w-full "
+            
+          />
+        ) : children ? (
           children
         ) : (
           <div className="flex h-full items-center justify-center">

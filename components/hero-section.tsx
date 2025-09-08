@@ -17,7 +17,7 @@ export function HeroSection() {
           Host surveys, collect feedback, and run research at lightning speed, no human intervention
         </p> */}
         <div className="mt-8 w-full max-w-6xl">
-          <Safari url="magicui.design" className="w-full" />
+          <Safari url="veribee.tech" className="w-full" />
         </div>
       </div>
     </section>

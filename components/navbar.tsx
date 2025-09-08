@@ -1,9 +1,25 @@
 "use client"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/moving-border"
 import { Shield, BarChart3, FileText } from "lucide-react"
 import Link from "next/link"
 
 export default function VeribeeNavbar() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   const navItems = [
     {
       name: "Home",
@@ -29,16 +45,23 @@ export default function VeribeeNavbar() {
 
   return (
     <div className="relative w-full">
-      <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-[5001] flex items-center gap-x-48">
+      <div
+        className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-[5001] flex items-center gap-x-48 transition-all duration-300 ${
+          scrolled ? "bg-black/5 backdrop-blur-xl shadow-lg rounded-full px-6 py-4" : ""
+        }`}
+      >
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2">
-          <img src="/images/veribee.png" alt="Veribee Logo" className="h-8 w-8 rounded-full" />
+          <img
+            src="/images/veribee.png"
+            alt="Veribee Logo"
+            className="h-8 w-8 rounded-full"
+          />
           <span className="text-blue-200 text-lg font-bold font-sans">Veribee</span>
         </Link>
 
         {/* Navigation */}
         <div className="flex items-center space-x-8 bg-black/80 backdrop-blur-md border border-blue-500/20 rounded-full px-8 py-3 ml-16">
-          {/* Navigation Items */}
           {navItems.map((item, idx) => (
             <a
               key={idx}
@@ -49,7 +72,7 @@ export default function VeribeeNavbar() {
             </a>
           ))}
         </div>
-        
+
         {/* Launch App Button */}
         <Link href="/dashboard" className="cursor-pointer">
           <Button
@@ -60,7 +83,6 @@ export default function VeribeeNavbar() {
             Launch App
           </Button>
         </Link>
-        {/* <appkit-button /> */}
       </div>
     </div>
   )
