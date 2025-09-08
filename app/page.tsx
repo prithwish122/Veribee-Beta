@@ -67,7 +67,7 @@ export default function Page() {
           </div>
         </section>
 
-        <div className="relative bg">
+        <div className="relative bg-black">
           {/* TrustedBy section */}
           {/* <TrustedBy /> */}
           {/* <InsightIntro className="mt-20 mb-20" /> */}
