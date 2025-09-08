@@ -36,6 +36,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="min-h-screen">
       <body className={`min-h-screen min-h-dvh bg-transparent font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+        {/* <GsapSmoothScroller smoothness={0.06}> */}
         <Suspense fallback={<div>Loading...</div>}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
              <ContextProvider cookies={cookies}>
@@ -48,6 +49,7 @@ export default async function RootLayout({
             {/* <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller> */}
           </ThemeProvider>
         </Suspense>
+        {/* </GsapSmoothScroller> */}
       </body>
     </html>
   )

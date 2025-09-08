@@ -14,6 +14,7 @@ import WhyChooseUs from "@/components/landing/WhyChooseus"
 import { FeaturesSectionDemo } from "@/components/magicui/feature-section-demo"
 import Testimonials from "@/components/testimonials"
 import FAQ from "@/components/Faq"
+import Footer from "@/components/Footer"
 // import Testimonials, { MarqueeDemo } from "@/components/testimonials"
 // import  Testimonials, { MarqueeDemo } from "@/components/testimonials"
 
@@ -85,6 +86,7 @@ export default function Page() {
           {/* <MarqueeDemo /> */}
           <Testimonials />
           <FAQ />
+          <Footer />
         </div>
       </main>
     </SplashLoader>
