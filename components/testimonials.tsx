@@ -14,14 +14,16 @@ export default function Testimonials() {
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10"></div>
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10"></div>
         
-        <Marquee className="[--duration:25s] py-4">
+        <Marquee className="[--duration:60s] py-4">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="mx-3 w-72 bg-gray-900/60 border border-gray-700/50 rounded-xl p-5 backdrop-blur-sm shrink-0">
               <div className="flex items-start gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
-                  <span className="text-white font-semibold text-sm">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-blue-400/30">
+                  <img 
+                    src={testimonial.img} 
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <div className="font-semibold text-white text-sm">{testimonial.name}</div>
@@ -35,14 +37,16 @@ export default function Testimonials() {
           ))}
         </Marquee>
         
-        <Marquee reverse className="[--duration:20s] py-4">
+        <Marquee reverse className="[--duration:50s] py-4">
           {testimonials.slice().reverse().map((testimonial, index) => (
             <div key={index} className="mx-3 w-72 bg-gray-900/60 border border-gray-700/50 rounded-xl p-5 backdrop-blur-sm shrink-0">
               <div className="flex items-start gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
-                  <span className="text-white font-semibold text-sm">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-400/30">
+                  <img 
+                    src={testimonial.img} 
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <div className="font-semibold text-white text-sm">{testimonial.name}</div>
@@ -63,32 +67,86 @@ export default function Testimonials() {
 const testimonials = [
   {
     quote:
-      "Zeyo has revolutionized how we track DeFi performance while maintaining complete privacy. The zkProof system is incredibly powerful.",
-    name: "Alex Chen",
-    title: "DeFi Trader",
+      "Veribee makes surveys smarter. The AI validation ensures only genuine, high-quality responses get rewarded.",
+    name: "Sophia Martinez",
+    role: "Community Manager, Web3 DAO",
+    img: "https://avatar.vercel.sh/jack",
   },
   {
     quote:
-      "Finally, a way to prove my trading success without exposing my wallet. The zkBadge system is genius for building reputation.",
-    name: "Sarah Johnson",
-    title: "Crypto Analyst",
-  },
-  {
-    quote:
-      "The privacy-first approach combined with advanced analytics makes Zeyo essential for serious traders who value discretion.",
-    name: "Michael Rodriguez",
-    title: "Fund Manager",
-  },
-  {
-    quote:
-      "Smart contract vaults with zero-knowledge proofs - this is the future of private DeFi trading. Absolutely game-changing.",
-    name: "Emma Thompson",
-    title: "Blockchain Developer",
-  },
-  {
-    quote:
-      "Zeyo's multi-chain support and privacy features have made it our go-to platform for institutional DeFi operations.",
+      "We used Veribee for developer feedback and loved the code editor support. It felt natural and streamlined.",
     name: "David Kim",
-    title: "Investment Director",
+    role: "Solana Developer Advocate",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    quote:
+      "Finally a survey tool that prevents spam responses. The ZK identity integration is a game-changer.",
+    name: "Arjun Mehta",
+    role: "Blockchain Researcher",
+    img: "https://avatar.vercel.sh/john",
+  },
+  {
+    quote:
+      "Escrow-based rewards gave our community confidence that only real contributions are incentivized.",
+    name: "Elena Petrova",
+    role: "Product Lead, DeFi Startup",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    quote:
+      "Veribee transformed our hackathon feedback collection—timed questions ensured fair participation.",
+    name: "Marcus Lee",
+    role: "Hackathon Organizer",
+    img: "https://avatar.vercel.sh/jenny",
+  },
+  {
+    quote:
+      "The AI analysis helped us instantly filter valuable insights without manually sifting through noise.",
+    name: "Priya Nair",
+    role: "Data Scientist",
+    img: "https://avatar.vercel.sh/james",
+  },
+  {
+    quote:
+      "With Veribee, we finally have a fair and transparent way to reward contributors in our ecosystem.",
+    name: "Liam O'Connor",
+    role: "DAO Contributor",
+    img: "https://avatar.vercel.sh/alice",
+  },
+  {
+    quote:
+      "The seamless blockchain integration made our survey rewards trustless and automatic.",
+    name: "Chen Wei",
+    role: "Smart Contract Engineer",
+    img: "https://avatar.vercel.sh/bob",
+  },
+  {
+    quote:
+      "As an educator, I loved how Veribee's timed questions ensured academic honesty in student quizzes.",
+    name: "Dr. Fatima Al-Sayed",
+    role: "University Professor",
+    img: "https://avatar.vercel.sh/charlie",
+  },
+  {
+    quote:
+      "Veribee's zero-knowledge identity system gave participants privacy without losing authenticity.",
+    name: "Jonas Richter",
+    role: "Privacy Advocate",
+    img: "https://avatar.vercel.sh/diana",
+  },
+  {
+    quote:
+      "We collected investor feedback with Veribee and were amazed by how quickly we got trustworthy insights.",
+    name: "Isabella Rossi",
+    role: "Startup Founder",
+    img: "https://avatar.vercel.sh/eve",
+  },
+  {
+    quote:
+      "Veribee feels like the future of surveys—secure, AI-powered, and built for Web3 communities.",
+    name: "Michael Carter",
+    role: "Blockchain Enthusiast",
+    img: "https://avatar.vercel.sh/frank",
   },
 ]
