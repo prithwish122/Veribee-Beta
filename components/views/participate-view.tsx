@@ -3,30 +3,31 @@
 import { Users } from "lucide-react"
 import { motion } from "framer-motion"
 import GlassButton from "@/components/glass-button"
-
-
 import { useEffect, useState } from "react"
+import { useAppKitAccount } from "@reown/appkit/react"
 import dynamic from "next/dynamic"
-const SurveyComponent = dynamic(() => import("@/components/Survey-render"), { ssr: false });
 
+const SurveyComponent = dynamic(() => import("@/components/Survey-render"), { ssr: false })
 
 type ParticipateViewProps = {
   onSelectSurvey?: (survey: any) => void;
 };
 
 export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps) {
-  const [surveys, setSurveys] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [surveys, setSurveys] = useState<any[]>([])
+  const [loading, setLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState("")
+  const { address } = useAppKitAccount()
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
     fetch("/api/forms")
       .then((res) => res.json())
       .then((data) => {
-        if (data?.forms) setSurveys(data.forms);
+        if (data?.forms) setSurveys(data.forms)
       })
-      .finally(() => setLoading(false));
-  }, []);
+      .finally(() => setLoading(false))
+  }, [])
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
@@ -48,7 +49,28 @@ export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 shadow-2xl hover:border-blue-400/50 transition-all duration-200 cursor-pointer"
-              onClick={() => onSelectSurvey?.(survey)}
+              onClick={async () => {
+                setErrorMsg("")
+                if (!address) {
+                  setErrorMsg("Please connect your wallet to participate.")
+                  return
+                }
+                try {
+                  const res = await fetch("/api/check-response", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ formId: survey.formId, address })
+                  })
+                  const data = await res.json()
+                  if (data.success && data.alreadyResponded) {
+                    setErrorMsg("You have already responded to this survey.")
+                    return
+                  }
+                  if (onSelectSurvey) onSelectSurvey(survey)
+                } catch (err) {
+                  setErrorMsg("Failed to check response status. Please try again.")
+                }
+              }}
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-2">
@@ -60,9 +82,11 @@ export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps
                 </div>
               </div>
 
+
               <h3 className="text-white font-bold text-lg mb-2">{survey.title || "Untitled Survey"}</h3>
               <p className="text-gray-300 text-sm mb-4">{survey.json?.description || survey.description || "No description."}</p>
 
+              {/* <p className="text-xs text-blue-300 mb-1">Form ID: {survey.formId || survey._id || "N/A"}</p> */}
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-400">Reward:</span>
@@ -72,6 +96,10 @@ export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps
                   <span className="text-gray-400">Participants:</span>
                   <span className="text-white">{survey.participants || Math.floor(Math.random() * 1000 + 100)}</span>
                 </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">FormID:</span>
+                  <span className="text-white">{survey.formId || survey._id || "N/A"}</span>
+                </div>
               </div>
 
               <GlassButton className="w-full">Join Survey</GlassButton>
@@ -80,6 +108,9 @@ export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps
         )}
       </div>
 
+      {errorMsg && (
+        <div className="text-red-400 text-center mt-4">{errorMsg}</div>
+      )}
       {/* SurveyComponent is now rendered by the parent (dashboard) */}
     </motion.div>
   )
