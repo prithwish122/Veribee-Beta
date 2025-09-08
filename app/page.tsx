@@ -72,7 +72,7 @@ export default function Page() {
           {/* <InsightIntro className="mt-20 mb-20" /> */}
           <WhyChoose />
 
-          <BentoGridDemo />
+          {/* <BentoGridDemo /> */}
 
           <HowItWorks />
         </div>
