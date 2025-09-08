@@ -1,3 +1,4 @@
+// This endpoint retrieves a user profile by their address
 // app/api/profiles/[address]/route.ts
 import { NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";

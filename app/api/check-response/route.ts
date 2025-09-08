@@ -1,4 +1,4 @@
-
+// This endpoint checks if a user has already responded to a specific form
 import { NextResponse } from "next/server";
 // @ts-ignore
 import clientPromise from "@/lib/mongodb";

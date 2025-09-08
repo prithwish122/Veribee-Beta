@@ -1,3 +1,4 @@
+// This endpoint checks if a user address is already registered in the "profiles" collection.
 import { NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
 

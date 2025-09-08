@@ -1,5 +1,6 @@
 // app/api/detect-spam/route.js
 
+// This endpoint checks whether the user's response is spam using Google Gemini API
 import { NextResponse } from 'next/server';
 
 // NOTE: No official "gemini-2.0-flash" exists yet.
