@@ -12,7 +12,8 @@ import Navbar from "@/components/navbar"
 // import WhyChoose from "@/components/landing/WhyChooseus"
 import WhyChooseUs from "@/components/landing/WhyChooseus"
 import { FeaturesSectionDemo } from "@/components/magicui/feature-section-demo"
-import { MarqueeDemo } from "@/components/testimonials"
+import Testimonials from "@/components/testimonials"
+// import Testimonials, { MarqueeDemo } from "@/components/testimonials"
 // import  Testimonials, { MarqueeDemo } from "@/components/testimonials"
 
 export default function Page() {
@@ -80,7 +81,8 @@ export default function Page() {
 
           {/* <HowItWorks /> */}
           <FeaturesSectionDemo />
-          <MarqueeDemo />
+          {/* <MarqueeDemo /> */}
+          <Testimonials />
         </div>
       </main>
     </SplashLoader>
