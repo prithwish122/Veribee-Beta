@@ -11,6 +11,7 @@ import { NavbarDock } from "@/components/navbar-dock"
 import Navbar from "@/components/navbar"
 // import WhyChoose from "@/components/landing/WhyChooseus"
 import WhyChooseUs from "@/components/landing/WhyChooseus"
+import { FeaturesSectionDemo } from "@/components/magicui/feature-section-demo"
 
 export default function Page() {
   return (
@@ -75,7 +76,8 @@ export default function Page() {
 
           {/* <BentoGridDemo /> */}
 
-          <HowItWorks />
+          {/* <HowItWorks /> */}
+          <FeaturesSectionDemo />
         </div>
       </main>
     </SplashLoader>
