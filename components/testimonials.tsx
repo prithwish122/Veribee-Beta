@@ -8,7 +8,7 @@ export default function Testimonials() {
         <h2 className="text-5xl  text-white mb-6 font-sans tracking-tight">
           What people <span className="italic text-blue-300">say</span> about us.
         </h2>
-        <p className="text-xl text-blue-200/80 font-sans">Real feedback from privacy-conscious DeFi traders.</p>
+        <p className="text-xl text-blue-200/80 font-sans">from people who care about data.</p>
       </div>
       <div className="relative w-full max-w-6xl">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10"></div>
