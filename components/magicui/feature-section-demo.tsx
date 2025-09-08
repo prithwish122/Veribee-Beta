@@ -48,7 +48,7 @@ export function FeaturesSectionDemo() {
         </h4>
 
         <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          From survey creation to verified insights
+          From survey creation to verified insights in minutes
         </p>
       </div>
 
@@ -93,9 +93,10 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
   return (
     <p
       className={cn(
-        "text-xl tracking-tight max-w-4xl text-left mx-auto",
-        "text-neutral-500 text-center font-normal dark:text-neutral-300",
-        "text-left max-w-sm mx-0 md:text-sm my-2"
+        "text-lg tracking-tight max-w-4xl text-left mx-auto",
+        "text-lg text-neutral-500 text-center font-normal dark:text-neutral-300",
+        "text-lg text-left max-w-sm mx-0 md:text-sm my-2"
+
       )}
     >
       {children}
