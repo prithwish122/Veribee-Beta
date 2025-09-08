@@ -1,0 +1,54 @@
+{
+  "questionJson": {
+    "title": "GOD MADE FORM",
+    "pages": [
+      {
+        "name": "page1",
+        "elements": [
+          {
+            "type": "checkbox",
+            "name": "question1",
+            "choices": [
+              {
+                "value": "Item 1",
+                "text": "have faith faith in somone"
+              },
+              {
+                "value": "Item 2",
+                "text": "do you have someone"
+              },
+              {
+                "value": "Item 3",
+                "text": "no no"
+              }
+            ]
+          }
+        ],
+        "title": "INTRO"
+      },
+      {
+        "name": "page2",
+        "elements": [
+          {
+            "type": "boolean",
+            "name": "question2",
+            "title": "Chud gye gruu ?"
+          }
+        ],
+        "title": "Situation "
+      }
+    ],
+    "headerView": "advanced"
+  },
+  "usersAnswerJson": {
+    "success": true,
+    "responses": [
+      {
+        "question1": [
+          "Item 1"
+        ],
+        "question2": false
+      }
+    ]
+  }
+}
