@@ -7,7 +7,7 @@ type SafariProps = {
   children?: React.ReactNode
 }
 
-export function Safari({ url = "magicui.design", className, children }: SafariProps) {
+export function Safari({ url = "veribee.tech", className, children }: SafariProps) {
   return (
     <div
       className={cn("w-full overflow-hidden rounded-xl border bg-background shadow-sm", className)}
