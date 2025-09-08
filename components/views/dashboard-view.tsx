@@ -10,21 +10,28 @@ const mockSurveys = [
     id: "consumer-behavior",
     title: "Consumer Behavior Study",
     status: "Ongoing" as const,
+    formId: 3
   },
   {
     id: "healthcare-satisfaction",
     title: "Healthcare Satisfaction Survey",
     status: "Ongoing" as const,
+    formId: 4
+
   },
   {
     id: "tech-adoption",
     title: "Technology Adoption Research",
     status: "Ended" as const,
+    formId: 1
+
   },
   {
     id: "market-research",
     title: "Market Research Analysis",
     status: "Ongoing" as const,
+    formId: 2
+
   },
 ]
 
