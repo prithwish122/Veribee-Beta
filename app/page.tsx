@@ -55,7 +55,7 @@ export default function Page() {
           <div className="relative z-[2] w-full flex flex-col items-center">
             <div className="w-full flex justify-center">{/* <FloatingDockWithNightMode /> */}</div>
 
-            <div className="flex w-full flex-1 items-center justify-center">
+            <div id="home" className="flex w-full flex-1 items-center justify-center">
               <header className="mt-[150px] text-center">
                 <h1 className="text-pretty text-4xl font-bold tracking-tighter text-foreground md:text-6xl lg:text-7xl">
                   Data that matters, insights that shatter.

@@ -31,14 +31,14 @@ export default function VeribeeNavbar() {
       link: "#features",
       icon: <Shield className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
+    // {
+    //   name: "Docs",
+    //   link: "#how-it-works",
+    //   icon: <BarChart3 className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    // },
     {
       name: "Docs",
-      link: "#how-it-works",
-      icon: <BarChart3 className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "Contact",
-      link: "#contact",
+      link: "https://veribee.gitbook.io/veribee",
       icon: <FileText className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
   ]
