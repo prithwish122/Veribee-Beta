@@ -53,6 +53,7 @@ export default async function RootLayout({
                  <Toaster />
               </OCConnectWrapper>
                
+               
              </ContextProvider>
             
             {/* <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller> */}
