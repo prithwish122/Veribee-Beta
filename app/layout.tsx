@@ -10,6 +10,7 @@ import { FloatingDockWithNightMode } from "@/components/floating-dock-with-night
 import ContextProvider from "@/context"
 import { headers } from 'next/headers' // added
 import Navbar from "@/components/navbar"
+import { Analytics } from "@vercel/analytics/next"
 
 import { Toaster } from "@/components/ui/toaster"
 
@@ -48,6 +49,7 @@ export default async function RootLayout({
 
                <OCConnectWrapper opts={opts} sandboxMode={true}>
                 {children}
+                <Analytics />
                  <Toaster />
               </OCConnectWrapper>
                
