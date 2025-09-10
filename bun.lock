@@ -362,25 +362,25 @@
 
     "@reduxjs/toolkit": ["@reduxjs/toolkit@2.9.0", "", { "dependencies": { "@standard-schema/spec": "^1.0.0", "@standard-schema/utils": "^0.3.0", "immer": "^10.0.3", "redux": "^5.0.1", "redux-thunk": "^3.1.0", "reselect": "^5.1.0" }, "peerDependencies": { "react": "^16.9.0 || ^17.0.0 || ^18 || ^19", "react-redux": "^7.2.1 || ^8.1.3 || ^9.0.0" }, "optionalPeers": ["react", "react-redux"] }, "sha512-fSfQlSRu9Z5yBkvsNhYF2rPS8cGXn/TZVrlwN1948QyZ8xMZ0JvP50S2acZNaf+o63u6aEeMjipFyksjIcWrog=="],
 
-    "@reown/appkit": ["@reown/appkit@1.8.2", "", { "dependencies": { "@reown/appkit-common": "1.8.2", "@reown/appkit-controllers": "1.8.2", "@reown/appkit-pay": "1.8.2", "@reown/appkit-polyfills": "1.8.2", "@reown/appkit-scaffold-ui": "1.8.2", "@reown/appkit-ui": "1.8.2", "@reown/appkit-utils": "1.8.2", "@reown/appkit-wallet": "1.8.2", "@walletconnect/universal-provider": "2.21.7", "bs58": "6.0.0", "semver": "7.7.2", "valtio": "2.1.5", "viem": ">=2.33.3" }, "optionalDependencies": { "@lit/react": "1.0.8" } }, "sha512-nCFMGQX3+XHTmd8pkWtyGRj+INFgeg0sRYxLZKQktvFsiR98BFjP9DQIErIujdk2chRx5mX0gGc5s9OvaRJNyA=="],
+    "@reown/appkit": ["@reown/appkit@1.8.4", "", { "dependencies": { "@reown/appkit-common": "1.8.4", "@reown/appkit-controllers": "1.8.4", "@reown/appkit-pay": "1.8.4", "@reown/appkit-polyfills": "1.8.4", "@reown/appkit-scaffold-ui": "1.8.4", "@reown/appkit-ui": "1.8.4", "@reown/appkit-utils": "1.8.4", "@reown/appkit-wallet": "1.8.4", "@walletconnect/universal-provider": "2.21.7", "bs58": "6.0.0", "semver": "7.7.2", "valtio": "2.1.7", "viem": ">=2.37.2" }, "optionalDependencies": { "@lit/react": "1.0.8" } }, "sha512-dVYNm31Z8sPiNHHE35ft7l/8v+5Bef+djsF7dlug1L9mQhl5Vv4LBysBY67ajrOJdelAOM7Fyg2RZfJar7ojBQ=="],
 
-    "@reown/appkit-adapter-wagmi": ["@reown/appkit-adapter-wagmi@1.8.2", "", { "dependencies": { "@reown/appkit": "1.8.2", "@reown/appkit-common": "1.8.2", "@reown/appkit-controllers": "1.8.2", "@reown/appkit-polyfills": "1.8.2", "@reown/appkit-scaffold-ui": "1.8.2", "@reown/appkit-utils": "1.8.2", "@reown/appkit-wallet": "1.8.2", "@walletconnect/universal-provider": "2.21.7", "valtio": "2.1.5" }, "optionalDependencies": { "@wagmi/connectors": ">=5.7.11" }, "peerDependencies": { "@wagmi/core": ">=2.16.7", "viem": ">=2.33.3", "wagmi": ">=2.16.3" } }, "sha512-7VfKKjDZkr3C9Bbx19FQfP3umHaw13ZZKbde+DjZNxWGx2CScOMZ187wXa+FU7umkvmXlAdYSbOzFFmriiEwNw=="],
+    "@reown/appkit-adapter-wagmi": ["@reown/appkit-adapter-wagmi@1.8.4", "", { "dependencies": { "@reown/appkit": "1.8.4", "@reown/appkit-common": "1.8.4", "@reown/appkit-controllers": "1.8.4", "@reown/appkit-polyfills": "1.8.4", "@reown/appkit-scaffold-ui": "1.8.4", "@reown/appkit-utils": "1.8.4", "@reown/appkit-wallet": "1.8.4", "@walletconnect/universal-provider": "2.21.7", "valtio": "2.1.7" }, "optionalDependencies": { "@wagmi/connectors": ">=5.9.9" }, "peerDependencies": { "@wagmi/core": ">=2.20.3", "viem": ">=2.37.1", "wagmi": ">=2.16.9" } }, "sha512-R/QeyKSbL3OXYpjAx6pxGF+v5/3wMc7b5tAYEcX/2u7o4kM2hkCZkHTu9M2sAB6xvHeXoJ2hsgSXV3vqB1vPtg=="],
 
-    "@reown/appkit-common": ["@reown/appkit-common@1.8.2", "", { "dependencies": { "big.js": "6.2.2", "dayjs": "1.11.13", "viem": ">=2.33.3" } }, "sha512-xlo1pRh1DkZfB7I1JkeC8ELlsM7ziSG/oJig1KgTsNZPQdYC9fADWY7vH/daUUkgS8QQbINc7HW8WAR1DkA+dw=="],
+    "@reown/appkit-common": ["@reown/appkit-common@1.8.4", "", { "dependencies": { "big.js": "6.2.2", "dayjs": "1.11.13", "viem": ">=2.37.2" } }, "sha512-DtyzFvFfh/7/+cmzqXqbfLAgelSYzojyoWH+FAwURdxUWvK72MGhSLdSZuOGK+iSexIA2UFjHTkxhnk1ho/Pfw=="],
 
-    "@reown/appkit-controllers": ["@reown/appkit-controllers@1.8.2", "", { "dependencies": { "@reown/appkit-common": "1.8.2", "@reown/appkit-wallet": "1.8.2", "@walletconnect/universal-provider": "2.21.7", "valtio": "2.1.5", "viem": ">=2.33.3" } }, "sha512-ccGbuiKNceCmh8JxtcDFc115fosJ2abcSfDo4HVSSgew/4rPzqIsD/TPfBLgk2KOAi7RF4keC5mckHHIWfmoFw=="],
+    "@reown/appkit-controllers": ["@reown/appkit-controllers@1.8.4", "", { "dependencies": { "@reown/appkit-common": "1.8.4", "@reown/appkit-wallet": "1.8.4", "@walletconnect/universal-provider": "2.21.7", "valtio": "2.1.7", "viem": ">=2.37.2" } }, "sha512-MaN98Z1FEc+uwpU4RaQ4Vjvgj77vBaEM60jh7b2dXkyVC7IgePhDzgQo16tO9KHlDZwcTsMr8FWPXDUFkKlQrA=="],
 
-    "@reown/appkit-pay": ["@reown/appkit-pay@1.8.2", "", { "dependencies": { "@reown/appkit-common": "1.8.2", "@reown/appkit-controllers": "1.8.2", "@reown/appkit-ui": "1.8.2", "@reown/appkit-utils": "1.8.2", "lit": "3.3.0", "valtio": "2.1.5" } }, "sha512-8rBB/sNty9P4oKVgETFmUXh6iFfbr+UWmpN7TThtMAFXuAGevbHKIF4ZXNjvF63L5knpOF8elVNNmSXyxHpInA=="],
+    "@reown/appkit-pay": ["@reown/appkit-pay@1.8.4", "", { "dependencies": { "@reown/appkit-common": "1.8.4", "@reown/appkit-controllers": "1.8.4", "@reown/appkit-ui": "1.8.4", "@reown/appkit-utils": "1.8.4", "lit": "3.3.0", "valtio": "2.1.7" } }, "sha512-Rl95KS3MF92IKcMrgXZJJy1LzW1a0ybtP66aaCEomNxGqbbpccz4Wg5qiAB9c6u/KOQw0WzhlPi7CVsjRFE8BQ=="],
 
-    "@reown/appkit-polyfills": ["@reown/appkit-polyfills@1.8.2", "", { "dependencies": { "buffer": "6.0.3" } }, "sha512-D1npLFY3q/X6qh241lh47DfL1EaPpMEeVtV7c2HFdmitUgXqc2BgH7mhMfpI3UgaT42+eP5+W+KanZwwyraNPw=="],
+    "@reown/appkit-polyfills": ["@reown/appkit-polyfills@1.8.4", "", { "dependencies": { "buffer": "6.0.3" } }, "sha512-xe70u0dJCCv3XYCTIwXxXnMJsgJDZ5g+vHU98HB9CMFKuRYaEiXN7NudU8x40R0aTs1TbsSjPBO+9uP9BhJKsQ=="],
 
-    "@reown/appkit-scaffold-ui": ["@reown/appkit-scaffold-ui@1.8.2", "", { "dependencies": { "@reown/appkit-common": "1.8.2", "@reown/appkit-controllers": "1.8.2", "@reown/appkit-ui": "1.8.2", "@reown/appkit-utils": "1.8.2", "@reown/appkit-wallet": "1.8.2", "lit": "3.3.0" } }, "sha512-AmcMlrovF6NLsopRGgjRYoWMx9R04Tf7G4g+O3I/I09iKv+whz3yjQDePuxhymsCbH5pUvuGkmvVl3mMvhCR0Q=="],
+    "@reown/appkit-scaffold-ui": ["@reown/appkit-scaffold-ui@1.8.4", "", { "dependencies": { "@reown/appkit-common": "1.8.4", "@reown/appkit-controllers": "1.8.4", "@reown/appkit-ui": "1.8.4", "@reown/appkit-utils": "1.8.4", "@reown/appkit-wallet": "1.8.4", "lit": "3.3.0" } }, "sha512-+1IpWn5Vcv6d0IwPBUoRP1v5F4XfjoZqQXukZ6A5+E6AjlJwFb7Cu6Gb4AJ3Deo0DAYz1YoWeA7UQNys+nTBmQ=="],
 
-    "@reown/appkit-ui": ["@reown/appkit-ui@1.8.2", "", { "dependencies": { "@phosphor-icons/webcomponents": "2.1.5", "@reown/appkit-common": "1.8.2", "@reown/appkit-controllers": "1.8.2", "@reown/appkit-wallet": "1.8.2", "lit": "3.3.0", "qrcode": "1.5.3" } }, "sha512-tdYFBmFLIQzqO0QYo6KJTWJ8UZ5yyqmQ4+YnD1PL4pIMPAaFcVB9ZP0ESSX1eX+bGKkBc+I/rbwKgyqTIJLV9Q=="],
+    "@reown/appkit-ui": ["@reown/appkit-ui@1.8.4", "", { "dependencies": { "@phosphor-icons/webcomponents": "2.1.5", "@reown/appkit-common": "1.8.4", "@reown/appkit-controllers": "1.8.4", "@reown/appkit-wallet": "1.8.4", "lit": "3.3.0", "qrcode": "1.5.3" } }, "sha512-7RNbCvQ8N9vDIWyX7QzDzwwn4kCqMvhrajEwlbhdWFtbtuBuz5w+XAVnDUJ2SiUAs9BUgN8rjjNBYN4PL6nDLA=="],
 
-    "@reown/appkit-utils": ["@reown/appkit-utils@1.8.2", "", { "dependencies": { "@reown/appkit-common": "1.8.2", "@reown/appkit-controllers": "1.8.2", "@reown/appkit-polyfills": "1.8.2", "@reown/appkit-wallet": "1.8.2", "@wallet-standard/wallet": "1.1.0", "@walletconnect/logger": "2.1.2", "@walletconnect/universal-provider": "2.21.7", "valtio": "2.1.5", "viem": ">=2.33.3" } }, "sha512-MBhZBCSMNeP6zQ/NVDqEK4DZttUMLEtO/G5WK4Yhzvzra54Z5VIzTPg5bnNe+ntAJ19AL2P7dh8RjaazdMN7Aw=="],
+    "@reown/appkit-utils": ["@reown/appkit-utils@1.8.4", "", { "dependencies": { "@reown/appkit-common": "1.8.4", "@reown/appkit-controllers": "1.8.4", "@reown/appkit-polyfills": "1.8.4", "@reown/appkit-wallet": "1.8.4", "@wallet-standard/wallet": "1.1.0", "@walletconnect/logger": "2.1.2", "@walletconnect/universal-provider": "2.21.7", "valtio": "2.1.7", "viem": ">=2.37.2" } }, "sha512-8xV2256s0fs1hWpYiPl+PpMo59gX/+zjOtefMK2hqsJjPz31uWBCkJ/caGE005eY06sLzQbkl2ruwtAzouaILg=="],
 
-    "@reown/appkit-wallet": ["@reown/appkit-wallet@1.8.2", "", { "dependencies": { "@reown/appkit-common": "1.8.2", "@reown/appkit-polyfills": "1.8.2", "@walletconnect/logger": "2.1.2", "zod": "3.22.4" } }, "sha512-cENbBX4WLwkLpIXwH6w+Ys9gmPVnQtGz59/UaO/+nsCxpy+yJcH1yjXyktiLYUBq64ZPGBluYYXg2zJgSCL+nA=="],
+    "@reown/appkit-wallet": ["@reown/appkit-wallet@1.8.4", "", { "dependencies": { "@reown/appkit-common": "1.8.4", "@reown/appkit-polyfills": "1.8.4", "@walletconnect/logger": "2.1.2", "zod": "3.22.4" } }, "sha512-VBHi0bSz61JxDS/FD+C+8b0duYUv+/Q4ADGQXvHahjLwI5Bq2rWyjquCUdFhpsGvenRG0KyrILhnMyWFgJH9Kg=="],
 
     "@safe-global/safe-apps-provider": ["@safe-global/safe-apps-provider@0.18.6", "", { "dependencies": { "@safe-global/safe-apps-sdk": "^9.1.0", "events": "^3.3.0" } }, "sha512-4LhMmjPWlIO8TTDC2AwLk44XKXaK6hfBTWyljDm0HQ6TWlOEijVWNrt2s3OCVMSxlXAcEzYfqyu1daHZooTC2Q=="],
 
@@ -398,7 +398,7 @@
 
     "@splinetool/react-spline": ["@splinetool/react-spline@4.1.0", "", { "dependencies": { "blurhash": "2.0.5", "lodash.debounce": "4.0.8", "react-merge-refs": "2.1.1", "thumbhash": "0.1.1" }, "peerDependencies": { "@splinetool/runtime": "*", "next": ">=14.2.0", "react": "*", "react-dom": "*" }, "optionalPeers": ["next"] }, "sha512-Y379gm17gw+1nxT/YXTCJnVIWuu7tsUH1tp/YxsYb0pZnc9Gljk7Om4Kpq7WPq0bZ4zidVCxf6xn6jgDcbHifQ=="],
 
-    "@splinetool/runtime": ["@splinetool/runtime@1.10.56", "", { "dependencies": { "on-change": "^4.0.0", "semver-compare": "^1.0.0" } }, "sha512-IKZHpoNcuMf0KaGHnnIPUpotZvuUErRqDovQxNaGkGZxxTTcmMSEfE9+1KSOKfQVfIRDRIgHyu5QumRADTaOng=="],
+    "@splinetool/runtime": ["@splinetool/runtime@1.10.57", "", { "dependencies": { "on-change": "^4.0.0", "semver-compare": "^1.0.0" } }, "sha512-C+nQs4eoRio0HdAW6wzX3KYEAMALXPEsNGkyLF1XINja/wxmMCpwwsbn9codDlfF3rZfkYzmQlQOLQrStuRFvQ=="],
 
     "@standard-schema/spec": ["@standard-schema/spec@1.0.0", "", {}, "sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA=="],
 
@@ -442,9 +442,9 @@
 
     "@tailwindcss/postcss": ["@tailwindcss/postcss@4.1.13", "", { "dependencies": { "@alloc/quick-lru": "^5.2.0", "@tailwindcss/node": "4.1.13", "@tailwindcss/oxide": "4.1.13", "postcss": "^8.4.41", "tailwindcss": "4.1.13" } }, "sha512-HLgx6YSFKJT7rJqh9oJs/TkBFhxuMOfUKSBEPYwV+t78POOBsdQ7crhZLzwcH3T0UyUuOzU/GK5pk5eKr3wCiQ=="],
 
-    "@tanstack/query-core": ["@tanstack/query-core@5.87.1", "", {}, "sha512-HOFHVvhOCprrWvtccSzc7+RNqpnLlZ5R6lTmngb8aq7b4rc2/jDT0w+vLdQ4lD9bNtQ+/A4GsFXy030Gk4ollA=="],
+    "@tanstack/query-core": ["@tanstack/query-core@5.87.4", "", {}, "sha512-uNsg6zMxraEPDVO2Bn+F3/ctHi+Zsk+MMpcN8h6P7ozqD088F6mFY5TfGM7zuyIrL7HKpDyu6QHfLWiDxh3cuw=="],
 
-    "@tanstack/react-query": ["@tanstack/react-query@5.87.1", "", { "dependencies": { "@tanstack/query-core": "5.87.1" }, "peerDependencies": { "react": "^18 || ^19" } }, "sha512-YKauf8jfMowgAqcxj96AHs+Ux3m3bWT1oSVKamaRPXSnW2HqSznnTCEkAVqctF1e/W9R/mPcyzzINIgpOH94qg=="],
+    "@tanstack/react-query": ["@tanstack/react-query@5.87.4", "", { "dependencies": { "@tanstack/query-core": "5.87.4" }, "peerDependencies": { "react": "^18 || ^19" } }, "sha512-T5GT/1ZaNsUXf5I3RhcYuT17I4CPlbZgyLxc/ZGv7ciS6esytlbjb3DgUFO6c8JWYMDpdjSWInyGZUErgzqhcA=="],
 
     "@types/d3-array": ["@types/d3-array@3.2.1", "", {}, "sha512-Y2Jn2idRrLzUfAKV2LyRImR+y4oa2AntrgID95SHJxuMUrkNXmanDSed71sRNZysveJVt1hLLemQZIady0FpEg=="],
 
@@ -696,7 +696,7 @@
 
     "eciesjs": ["eciesjs@0.4.15", "", { "dependencies": { "@ecies/ciphers": "^0.2.3", "@noble/ciphers": "^1.3.0", "@noble/curves": "^1.9.1", "@noble/hashes": "^1.8.0" } }, "sha512-r6kEJXDKecVOCj2nLMuXK/FCPeurW33+3JRpfXVbjLja3XUYFfD9I/JBreH6sUyzcm3G/YQboBjMla6poKeSdA=="],
 
-    "electron-to-chromium": ["electron-to-chromium@1.5.214", "", {}, "sha512-TpvUNdha+X3ybfU78NoQatKvQEm1oq3lf2QbnmCEdw+Bd9RuIAY+hJTvq1avzHM0f7EJfnH3vbCnbzKzisc/9Q=="],
+    "electron-to-chromium": ["electron-to-chromium@1.5.215", "", {}, "sha512-TIvGp57UpeNetj/wV/xpFNpWGb0b/ROw372lHPx5Aafx02gjTBtWnEEcaSX3W2dLM3OSdGGyHX/cHl01JQsLaQ=="],
 
     "embla-carousel": ["embla-carousel@8.6.0", "", {}, "sha512-SjWyZBHJPbqxHOzckOfo8lHisEaJWmwd23XppYFYVh10bU66/Pn5tkVkbkCMZVdbUE5eTCI2nD8OyIP4Z+uwkA=="],
 
@@ -874,7 +874,7 @@
 
     "lucide-react": ["lucide-react@0.454.0", "", { "peerDependencies": { "react": "^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc" } }, "sha512-hw7zMDwykCLnEzgncEEjHeA6+45aeEzRYuKHuyRSOPkhko+J3ySGjGIzu+mmMfDFG1vazHepMaYFYHbTFAZAAQ=="],
 
-    "magic-string": ["magic-string@0.30.18", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.5" } }, "sha512-yi8swmWbO17qHhwIBNeeZxTceJMeBvWJaId6dyvTSOwTipqeHhMhOrz6513r1sOKnpvQ7zkhlG8tPrpilwTxHQ=="],
+    "magic-string": ["magic-string@0.30.19", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.5" } }, "sha512-2N21sPY9Ws53PZvsEpVtNuSW+ScYbQdp4b9qUaL+9QkHUrGFKo56Lg9Emg5s9V/qrtNBmiR01sYhUOwu3H+VOw=="],
 
     "math-intrinsics": ["math-intrinsics@1.1.0", "", {}, "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g=="],
 
@@ -1018,7 +1018,7 @@
 
     "real-require": ["real-require@0.1.0", "", {}, "sha512-r/H9MzAWtrv8aSVjPCMFpDMl5q66GqtmmRkRjpHTsp4zBAa+snZyiQNlMONiUmEJcsnaw0wCauJ2GWODr/aFkg=="],
 
-    "recharts": ["recharts@3.1.2", "", { "dependencies": { "@reduxjs/toolkit": "1.x.x || 2.x.x", "clsx": "^2.1.1", "decimal.js-light": "^2.5.1", "es-toolkit": "^1.39.3", "eventemitter3": "^5.0.1", "immer": "^10.1.1", "react-redux": "8.x.x || 9.x.x", "reselect": "5.1.1", "tiny-invariant": "^1.3.3", "use-sync-external-store": "^1.2.2", "victory-vendor": "^37.0.2" }, "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-vhNbYwaxNbk/IATK0Ki29k3qvTkGqwvCgyQAQ9MavvvBwjvKnMTswdbklJpcOAoMPN/qxF3Lyqob0zO+ZXkZ4g=="],
+    "recharts": ["recharts@3.2.0", "", { "dependencies": { "@reduxjs/toolkit": "1.x.x || 2.x.x", "clsx": "^2.1.1", "decimal.js-light": "^2.5.1", "es-toolkit": "^1.39.3", "eventemitter3": "^5.0.1", "immer": "^10.1.1", "react-redux": "8.x.x || 9.x.x", "reselect": "5.1.1", "tiny-invariant": "^1.3.3", "use-sync-external-store": "^1.2.2", "victory-vendor": "^37.0.2" }, "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-fX0xCgNXo6mag9wz3oLuANR+dUQM4uIlTYBGTGq9CBRgW/8TZPzqPGYs5NTt8aENCf+i1CI8vqxT1py8L/5J2w=="],
 
     "redux": ["redux@5.0.1", "", {}, "sha512-M9/ELqF6fy8FwmkpnF0S3YKOqMyoWJ4+CS5Efg2ct3oY9daQvd/Pc71FpGZsVsbl3Cpb+IIcjBDUnnyBdQbq4w=="],
 
@@ -1090,13 +1090,13 @@
 
     "superstruct": ["superstruct@1.0.4", "", {}, "sha512-7JpaAoX2NGyoFlI9NBh66BQXGONc+uE+MRS5i2iOBKuS4e+ccgMDjATgZldkah+33DakBxDHiss9kvUcGAO8UQ=="],
 
-    "survey-core": ["survey-core@2.3.5", "", {}, "sha512-iLfTXgKjElrEcMR7geMC9QOLkM+Jdn9GCgrCk6jGMcdfDhpwQw0B+d2n5kDTjUeOl64AfAwRKtF5JRlbGX6LRw=="],
+    "survey-core": ["survey-core@2.3.6", "", {}, "sha512-HJK4HurscNmj8zY9MFChPGlap7bZABxKJ2E8ggPvBSngkIXszzTs6CngASYg6dRrFVJqwxGhmfU3nt16ldmCpg=="],
 
-    "survey-creator-core": ["survey-creator-core@2.3.5", "", { "peerDependencies": { "ace-builds": "^1.4.12", "survey-core": "2.3.5" }, "optionalPeers": ["ace-builds"] }, "sha512-KIgU7ZV/Fucepilpo2imXRT/6RkhIt4aii1TLoZ84AbrceULpDUY5FWLxqxPt+Dw4j3gaChtAzW/vsWIKHpMDA=="],
+    "survey-creator-core": ["survey-creator-core@2.3.6", "", { "peerDependencies": { "ace-builds": "^1.4.12", "survey-core": "2.3.6" }, "optionalPeers": ["ace-builds"] }, "sha512-MErDjZmA4nIMCf03ZPzCwx2afXn24TNaX2oxsrKgzLWMvSzVEVuhHnRivwlal9s7zgDK6hEf8V8tjje7ho7XaA=="],
 
-    "survey-creator-react": ["survey-creator-react@2.3.5", "", { "peerDependencies": { "ace-builds": "^1.4.12", "react": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0", "react-dom": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0", "survey-core": "2.3.5", "survey-creator-core": "2.3.5", "survey-react-ui": "2.3.5" }, "optionalPeers": ["ace-builds"] }, "sha512-RyZnDEEktwFFzvqApAGgMFP/T9uVUci1nloJyCp+9gXZc1ZfNyWVrRfAEVCCum0RtgFVsaW8aYCkcTly3tzplQ=="],
+    "survey-creator-react": ["survey-creator-react@2.3.6", "", { "peerDependencies": { "ace-builds": "^1.4.12", "react": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0", "react-dom": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0", "survey-core": "2.3.6", "survey-creator-core": "2.3.6", "survey-react-ui": "2.3.6" }, "optionalPeers": ["ace-builds"] }, "sha512-gutE81ZQRQPrEoHWvTpYJ0PUAnN7xDIvTOczh5Tdj/F9+bv0QtXrmAjJbJCqwNmcO98YYmtJFN5JKwGHR5xP/g=="],
 
-    "survey-react-ui": ["survey-react-ui@2.3.5", "", { "peerDependencies": { "react": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0", "react-dom": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0", "survey-core": "2.3.5" } }, "sha512-vXCERzUT53EnQahqAA73Xh/DO2HmJPfB5R2VNQEX2T3k1mxf69kXPZ2AU9z039eZPnLH/w8g5B4M+lJ6Tev2QQ=="],
+    "survey-react-ui": ["survey-react-ui@2.3.6", "", { "peerDependencies": { "react": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0", "react-dom": "^16.5.0 || ^17.0.1 || ^18.1.0 || ^19.0.0", "survey-core": "2.3.6" } }, "sha512-on4bcmxNV+bveZDGU0lIl7BKZulKUq2/mIS+2ONrl66viZ2SXTNx8f7jy1zic7QqXx2S9dA2kRki0jckD7HfXg=="],
 
     "tailwind-merge": ["tailwind-merge@2.6.0", "", {}, "sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA=="],
 
@@ -1154,13 +1154,13 @@
 
     "uuid": ["uuid@8.3.2", "", { "bin": { "uuid": "dist/bin/uuid" } }, "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="],
 
-    "valtio": ["valtio@2.1.5", "", { "dependencies": { "proxy-compare": "^3.0.1" }, "peerDependencies": { "@types/react": ">=18.0.0", "react": ">=18.0.0" }, "optionalPeers": ["@types/react", "react"] }, "sha512-vsh1Ixu5mT0pJFZm+Jspvhga5GzHUTYv0/+Th203pLfh3/wbHwxhu/Z2OkZDXIgHfjnjBns7SN9HNcbDvPmaGw=="],
+    "valtio": ["valtio@2.1.7", "", { "dependencies": { "proxy-compare": "^3.0.1" }, "peerDependencies": { "@types/react": ">=18.0.0", "react": ">=18.0.0" }, "optionalPeers": ["@types/react", "react"] }, "sha512-DwJhCDpujuQuKdJ2H84VbTjEJJteaSmqsuUltsfbfdbotVfNeTE4K/qc/Wi57I9x8/2ed4JNdjEna7O6PfavRg=="],
 
     "vaul": ["vaul@1.1.2", "", { "dependencies": { "@radix-ui/react-dialog": "^1.1.1" }, "peerDependencies": { "react": "^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc", "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc" } }, "sha512-ZFkClGpWyI2WUQjdLJ/BaGuV6AVQiJ3uELGk3OYtP+B6yCO7Cmn9vPFXVJkRaGkOJu3m8bQMgtyzNHixULceQA=="],
 
     "victory-vendor": ["victory-vendor@37.3.6", "", { "dependencies": { "@types/d3-array": "^3.0.3", "@types/d3-ease": "^3.0.0", "@types/d3-interpolate": "^3.0.1", "@types/d3-scale": "^4.0.2", "@types/d3-shape": "^3.1.0", "@types/d3-time": "^3.0.0", "@types/d3-timer": "^3.0.0", "d3-array": "^3.1.6", "d3-ease": "^3.0.1", "d3-interpolate": "^3.0.1", "d3-scale": "^4.0.2", "d3-shape": "^3.1.0", "d3-time": "^3.0.0", "d3-timer": "^3.0.1" } }, "sha512-SbPDPdDBYp+5MJHhBCAyI7wKM3d5ivekigc2Dk2s7pgbZ9wIgIBYGVw4zGHBml/qTFbexrofXW6Gu4noGxrOwQ=="],
 
-    "viem": ["viem@2.37.3", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.3", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-hwoZqkFSy13GCFzIftgfIH8hNENvdlcHIvtLt73w91tL6rKmZjQisXWTahi1Vn5of8/JQ1FBKfwUus3YkDXwbw=="],
+    "viem": ["viem@2.37.5", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.3", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-bLKvKgLcge6KWBMLk8iP9weu5tHNr0hkxPNwQd+YQrHEgek7ogTBBeE10T0V6blwBMYmeZFZHLnMhDmPjp63/A=="],
 
     "wagmi": ["wagmi@2.16.9", "", { "dependencies": { "@wagmi/connectors": "5.9.9", "@wagmi/core": "2.20.3", "use-sync-external-store": "1.4.0" }, "peerDependencies": { "@tanstack/react-query": ">=5.0.0", "react": ">=18", "typescript": ">=5.0.4", "viem": "2.x" }, "optionalPeers": ["typescript"] }, "sha512-5NbjvuNNhT0t0lQsDD5otQqZ5RZBM1UhInHoBq/Lpnr6xLLa8AWxYqHg5oZtGCdiUNltys11iBOS6z4mLepIqw=="],
 
@@ -1236,6 +1236,8 @@
 
     "@reown/appkit-wallet/zod": ["zod@3.22.4", "", {}, "sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg=="],
 
+    "@scure/bip32/@noble/curves": ["@noble/curves@1.9.7", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw=="],
+
     "@tailwindcss/oxide-wasm32-wasi/@emnapi/core": ["@emnapi/core@1.5.0", "", { "dependencies": { "@emnapi/wasi-threads": "1.1.0", "tslib": "^2.4.0" }, "bundled": true }, "sha512-sbP8GzB1WDzacS8fgNPpHlp6C9VZe+SJP3F90W9rLemaQj2PzIuTEl1qDOYQf58YIpyjViI24y9aPWCjEzY2cg=="],
 
     "@tailwindcss/oxide-wasm32-wasi/@emnapi/runtime": ["@emnapi/runtime@1.5.0", "", { "dependencies": { "tslib": "^2.4.0" }, "bundled": true }, "sha512-97/BJ3iXHww3djw6hYIfErCZFee7qCtrneuLa20UXFCOTCfBM2cvQHjWJ2EG0s0MtdNwInarqCTz35i4wWXHsQ=="],
@@ -1290,7 +1292,7 @@
 
     "cbw-sdk/clsx": ["clsx@1.2.1", "", {}, "sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg=="],
 
-    "eciesjs/@noble/curves": ["@noble/curves@1.9.2", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-HxngEd2XUcg9xi20JkwlLCtYwfoFw4JGkuZpT+WlsPD4gB/cxkvTD8fSsoAnphGZhFdZYKeQIPCuFlWPm1uE0g=="],
+    "eciesjs/@noble/curves": ["@noble/curves@1.9.7", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw=="],
 
     "engine.io-client/debug": ["debug@4.3.7", "", { "dependencies": { "ms": "^2.1.3" } }, "sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ=="],
 
@@ -1330,7 +1332,11 @@
 
     "wagmi/use-sync-external-store": ["use-sync-external-store@1.4.0", "", { "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-9WXSPC5fMv61vaupRkCKCxsPxBocVnwakBEkMIHHpkTTg6icbJtg6jzgtLDm4bl3cSHAca52rYWih0k4K3PfHw=="],
 
+    "@base-org/account/ox/@noble/curves": ["@noble/curves@1.9.7", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw=="],
+
     "@base-org/account/ox/@noble/hashes": ["@noble/hashes@1.8.0", "", {}, "sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A=="],
+
+    "@coinbase/wallet-sdk/ox/@noble/curves": ["@noble/curves@1.9.7", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw=="],
 
     "@coinbase/wallet-sdk/ox/@noble/hashes": ["@noble/hashes@1.8.0", "", {}, "sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A=="],
 
@@ -1442,7 +1448,7 @@
 
     "@walletconnect/ethereum-provider/@walletconnect/utils/viem/ws": ["ws@8.18.0", "", { "peerDependencies": { "bufferutil": "^4.0.1", "utf-8-validate": ">=5.0.2" }, "optionalPeers": ["bufferutil", "utf-8-validate"] }, "sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw=="],
 
-    "@walletconnect/utils/viem/ox/@noble/curves": ["@noble/curves@1.9.2", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-HxngEd2XUcg9xi20JkwlLCtYwfoFw4JGkuZpT+WlsPD4gB/cxkvTD8fSsoAnphGZhFdZYKeQIPCuFlWPm1uE0g=="],
+    "@walletconnect/utils/viem/ox/@noble/curves": ["@noble/curves@1.9.7", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw=="],
 
     "@walletconnect/utils/viem/ox/abitype": ["abitype@1.1.0", "", { "peerDependencies": { "typescript": ">=5.0.4", "zod": "^3.22.0 || ^4.0.0" }, "optionalPeers": ["typescript", "zod"] }, "sha512-6Vh4HcRxNMLA0puzPjM5GBgT4aAcFGKZzSgAXvuZ27shJP6NEpielTuqbBmZILR5/xd0PizkBGy5hReKz9jl5A=="],
 
@@ -1460,7 +1466,7 @@
 
     "@walletconnect/ethereum-provider/@reown/appkit/@walletconnect/universal-provider/@walletconnect/utils/viem": ["viem@2.23.2", "", { "dependencies": { "@noble/curves": "1.8.1", "@noble/hashes": "1.7.1", "@scure/bip32": "1.6.2", "@scure/bip39": "1.5.4", "abitype": "1.0.8", "isows": "1.0.6", "ox": "0.6.7", "ws": "8.18.0" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-NVmW/E0c5crMOtbEAqMF0e3NmvQykFXhLOc/CkLIXOlzHSA6KXVz3CYVmaKqBF8/xtjsjHAGjdJN3Ru1kFJLaA=="],
 
-    "@walletconnect/ethereum-provider/@walletconnect/utils/viem/ox/@noble/curves": ["@noble/curves@1.9.1", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-k11yZxZg+t+gWvBbIswW0yoJlu8cHOC7dhunwOzoWH/mXGBiYyR4YY6hAEK/3EUs4UpB8la1RfdRpeGsFHkWsA=="],
+    "@walletconnect/ethereum-provider/@walletconnect/utils/viem/ox/@noble/curves": ["@noble/curves@1.9.7", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw=="],
 
     "@walletconnect/ethereum-provider/@walletconnect/utils/viem/ox/@noble/hashes": ["@noble/hashes@1.8.0", "", {}, "sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A=="],
 
@@ -1484,7 +1490,7 @@
 
     "@walletconnect/ethereum-provider/@reown/appkit/@walletconnect/universal-provider/@walletconnect/utils/viem/ws": ["ws@8.18.0", "", { "peerDependencies": { "bufferutil": "^4.0.1", "utf-8-validate": ">=5.0.2" }, "optionalPeers": ["bufferutil", "utf-8-validate"] }, "sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw=="],
 
-    "@walletconnect/ethereum-provider/@reown/appkit/@walletconnect/universal-provider/@walletconnect/utils/viem/ox/@noble/curves": ["@noble/curves@1.9.1", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-k11yZxZg+t+gWvBbIswW0yoJlu8cHOC7dhunwOzoWH/mXGBiYyR4YY6hAEK/3EUs4UpB8la1RfdRpeGsFHkWsA=="],
+    "@walletconnect/ethereum-provider/@reown/appkit/@walletconnect/universal-provider/@walletconnect/utils/viem/ox/@noble/curves": ["@noble/curves@1.9.7", "", { "dependencies": { "@noble/hashes": "1.8.0" } }, "sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw=="],
 
     "@walletconnect/ethereum-provider/@reown/appkit/@walletconnect/universal-provider/@walletconnect/utils/viem/ox/@noble/hashes": ["@noble/hashes@1.8.0", "", {}, "sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A=="],
 
