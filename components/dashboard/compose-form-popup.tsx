@@ -28,9 +28,10 @@ export default function backComposeForm({ onProceed, onClose }: ComposeFormProps
     startDate: "",
     endDate: "",
     consentNote: "",
+    isPublic: true, // New field for public/private toggle
   })
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
@@ -127,6 +128,42 @@ export default function backComposeForm({ onProceed, onClose }: ComposeFormProps
                 placeholder="Describe your target audience (age, location, occupation, etc.)"
                 rows={3}
               />
+            </div>
+
+            {/* Public/Private Toggle */}
+            <div className="space-y-2">
+              <Label className="text-white text-sm font-medium">
+                Survey Visibility <span className="text-red-400">*</span>
+              </Label>
+              <div className="flex items-center space-x-4">
+                <button
+                  type="button"
+                  onClick={() => handleInputChange("isPublic", !formData.isPublic)}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black ${
+                    formData.isPublic ? 'bg-blue-500' : 'bg-white/20'
+                  }`}
+                >
+                  <span
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                      formData.isPublic ? 'translate-x-6' : 'translate-x-1'
+                    }`}
+                  />
+                </button>
+                <div className="flex items-center space-x-6">
+                  <span className={`text-sm ${formData.isPublic ? 'text-blue-400' : 'text-gray-400'}`}>
+                    Public
+                  </span>
+                  <span className={`text-sm ${!formData.isPublic ? 'text-blue-400' : 'text-gray-400'}`}>
+                    Private
+                  </span>
+                </div>
+              </div>
+              <p className="text-xs text-gray-400">
+                {formData.isPublic 
+                  ? "Anyone can discover and participate in this survey" 
+                  : "Only people with the direct link can participate"
+                }
+              </p>
             </div>
 
             {/* Incentive Details */}
