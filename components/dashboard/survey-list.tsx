@@ -4,20 +4,19 @@ import { Users } from "lucide-react"
 import { motion } from "framer-motion"
 
 interface Survey {
-  id: string
-  title: string
-  status: "Ongoing" | "Ended"
-  description?: string
-  reward?: string
-  participants?: number
-  timeLeft?: string
-  formId?: number | string
-  releaseDate?: string // ISO date string
+  formId: number | string;
+  title: string;
+  status: "Ongoing" | "Ended";
+  description?: string;
+  reward?: string;
+  participants?: number;
+  timeLeft?: string;
+  releaseDate?: string; // ISO date string
 }
 
 interface SurveyListProps {
-  surveys: Survey[]
-  onSurveySelect: (surveyId: string) => void
+  surveys: Survey[];
+  onSurveySelect: (formId: number | string) => void;
 }
 
 export default function SurveyList({ surveys, onSurveySelect }: SurveyListProps) {
@@ -33,13 +32,14 @@ export default function SurveyList({ surveys, onSurveySelect }: SurveyListProps)
           <div className="text-gray-400 col-span-full">No surveys found.</div>
         ) : (
           surveys.map((survey, index) => (
+
             <motion.div
-              key={survey.id}
+              key={survey.formId}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 shadow-2xl hover:border-blue-400/50 transition-all duration-200 cursor-pointer"
-              onClick={() => onSurveySelect(survey.id)}
+              onClick={() => onSurveySelect(survey.formId)}
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="bg-blue-400/20 text-blue-300 px-2 py-1 rounded-full text-xs">

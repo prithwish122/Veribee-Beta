@@ -6,14 +6,19 @@ import SurveyList from "@/components/dashboard/survey-list"
 import SurveyAnalytics from "@/components/dashboard/survey-analytics"
 
 type Survey = {
-  id: string
-  title: string
-  status: "Ongoing" | "Ended"
-}
+  formId: string | number;
+  title: string;
+  status: "Ongoing" | "Ended";
+  description?: string;
+  reward?: string;
+  participants?: number;
+  timeLeft?: string;
+  releaseDate?: string;
+};
 
 export default function DashboardView() {
   const [surveys, setSurveys] = useState<Survey[]>([])
-  const [selectedSurvey, setSelectedSurvey] = useState<string | null>(null)
+  const [selectedSurvey, setSelectedSurvey] = useState<string | number | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -33,10 +38,15 @@ export default function DashboardView() {
   }, [])
 
   if (selectedSurvey) {
-    const survey = surveys.find((s) => s.id === selectedSurvey)
+    const survey = surveys.find((s) => s.formId === selectedSurvey);
+    if (!survey) {
+      // Defensive: If survey not found, go back
+      setSelectedSurvey(null);
+      return null;
+    }
     return (
       <SurveyAnalytics survey={survey} onBack={() => setSelectedSurvey(null)} />
-    )
+    );
   }
 
   return (

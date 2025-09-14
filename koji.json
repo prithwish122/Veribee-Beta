@@ -1,41 +1,230 @@
 {
   "questionJson": {
-    "title": "GOD MADE FORM",
+    "title": "Phone Addiction",
+    "description": "Research on addiction of usage of smart phones",
     "pages": [
       {
         "name": "page1",
         "elements": [
           {
-            "type": "checkbox",
+            "type": "radiogroup",
             "name": "question1",
+            "title": "1. On average, how many hours per day do you spend on your smartphone?",
             "choices": [
               {
                 "value": "Item 1",
-                "text": "have faith faith in somone"
+                "text": "Less than 1 hour"
               },
               {
                 "value": "Item 2",
-                "text": "do you have someone"
+                "text": "1-3 hours"
               },
               {
                 "value": "Item 3",
-                "text": "no no"
+                "text": "3-5 hours"
+              },
+              {
+                "value": "Item 4",
+                "text": "5-7 hours"
+              },
+              {
+                "value": "Item 5",
+                "text": "More than 7 hours"
               }
             ]
-          }
-        ],
-        "title": "INTRO"
-      },
-      {
-        "name": "page2",
-        "elements": [
+          },
           {
             "type": "boolean",
             "name": "question2",
-            "title": "Chud gye gruu ?"
+            "title": "2. Do you check your phone immediately after waking up in the morning?"
+          },
+          {
+            "type": "radiogroup",
+            "name": "question3",
+            "title": "3. Has your smartphone use ever delayed your bedtime or reduced your sleep duration?",
+            "choices": [
+              {
+                "value": "Item 1",
+                "text": "Never"
+              },
+              {
+                "value": "Item 2",
+                "text": "Rarely"
+              },
+              {
+                "value": "Item 3",
+                "text": "Sometimes"
+              },
+              {
+                "value": "Item 4",
+                "text": "Often"
+              },
+              {
+                "value": "Item 5",
+                "text": "Always"
+              }
+            ]
+          },
+          {
+            "type": "radiogroup",
+            "name": "question4",
+            "title": "4. Do you feel that your phone use interferes with your studies, job performance, or productivity?",
+            "choices": [
+              {
+                "value": "Item 1",
+                "text": "Strongly disagree"
+              },
+              {
+                "value": "Item 2",
+                "text": "Disagree"
+              },
+              {
+                "value": "Item 3",
+                "text": "Neutral"
+              },
+              {
+                "value": "Item 4",
+                "text": "Agree"
+              },
+              {
+                "value": "Item 5",
+                "text": "Strongly agree"
+              }
+            ]
+          },
+          {
+            "type": "radiogroup",
+            "name": "question5",
+            "title": "5. Do you use your phone even when spending time with friends or family?",
+            "choices": [
+              {
+                "value": "Item 1",
+                "text": "Never"
+              },
+              {
+                "value": "Item 2",
+                "text": "Rarely"
+              },
+              {
+                "value": "Item 3",
+                "text": "Sometimes"
+              },
+              {
+                "value": "Item 4",
+                "text": "Often"
+              },
+              {
+                "value": "Item 5",
+                "text": "Always"
+              }
+            ]
+          },
+          {
+            "type": "radiogroup",
+            "name": "question6",
+            "title": "6. Do you feel anxious, restless, or uncomfortable when you don’t have access to your phone?",
+            "choices": [
+              {
+                "value": "Item 1",
+                "text": "Strongly disagree"
+              },
+              {
+                "value": "Item 2",
+                "text": "Disagree"
+              },
+              {
+                "value": "Item 3",
+                "text": "Neutral"
+              },
+              {
+                "value": "Item 4",
+                "text": "Agree"
+              },
+              {
+                "value": "Item 5",
+                "text": "Strongly agree"
+              }
+            ]
+          },
+          {
+            "type": "slider",
+            "name": "question7",
+            "title": "7. How often do you unlock/check your phone without a specific reason (just out of habit)?"
+          },
+          {
+            "type": "radiogroup",
+            "name": "question8",
+            "title": "8. Have you experienced headaches, eye strain, or neck pain due to prolonged smartphone use?",
+            "choices": [
+              {
+                "value": "Item 1",
+                "text": "Headaches"
+              },
+              {
+                "value": "Item 2",
+                "text": "Eye strain"
+              },
+              {
+                "value": "Item 3",
+                "text": "Neck/Shoulder pain"
+              },
+              {
+                "value": "Item 4",
+                "text": "None of the above"
+              }
+            ]
+          },
+          {
+            "type": "radiogroup",
+            "name": "question9",
+            "title": "9. Have you ever tried to reduce your phone usage?",
+            "choices": [
+              {
+                "value": "Item 1",
+                "text": "No never"
+              },
+              {
+                "value": "Item 2",
+                "text": "Yes, and I was successful in"
+              },
+              {
+                "value": "Item 3",
+                "text": "Yes, but I was not successful"
+              }
+            ]
+          },
+          {
+            "type": "radiogroup",
+            "name": "question10",
+            "title": "10. What is the primary reason you use your smartphone the most?",
+            "choices": [
+              {
+                "value": "Item 1",
+                "text": "Social media (Instagram, Facebook, Twitter, etc.)"
+              },
+              {
+                "value": "Item 2",
+                "text": "Messaging (WhatsApp, Telegram, SMS, etc.)"
+              },
+              {
+                "value": "Item 3",
+                "text": "Work/Study (Emails, documents, research, etc.)"
+              },
+              {
+                "value": "Item 4",
+                "text": "Gaming"
+              },
+              {
+                "value": "Item 5",
+                "text": "Entertainment (YouTube, Netflix, music, etc.)"
+              },
+              {
+                "value": "Item 6",
+                "text": "Other (please specify)"
+              }
+            ]
           }
-        ],
-        "title": "Situation "
+        ]
       }
     ],
     "headerView": "advanced"
@@ -44,10 +233,46 @@
     "success": true,
     "responses": [
       {
-        "question1": [
-          "Item 1"
-        ],
-        "question2": false
+        "question10": "Item 5",
+        "question1": "Item 3",
+        "question2": true,
+        "question3": "Item 4",
+        "question4": "Item 3",
+        "question5": "Item 4",
+        "question6": "Item 1",
+        "question7": 60,
+        "question8": "Item 2",
+        "question9": "Item 3"
+      },
+      {
+        "question1": "Item 1",
+        "question2": false,
+        "question3": "Item 1",
+        "question4": "Item 1",
+        "question5": "Item 1",
+        "question6": "Item 1",
+        "question7": 65,
+        "question8": "Item 2",
+        "question10": "Item 6",
+        "question9": "Item 2"
+      },
+      {
+        "question1": "Item 1",
+        "question2": false,
+        "question3": "Item 1",
+        "question4": "Item 1",
+        "question5": "Item 1",
+        "question6": "Item 1",
+        "question7": 0,
+        "question8": "Item 1",
+        "question9": "Item 1",
+        "question10": "Item 1"
+      },
+      {
+        "question1": "Item 2",
+        "question2": true,
+        "question3": "Item 1",
+        "question10": "Item 6"
       }
     ]
   }
