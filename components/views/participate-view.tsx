@@ -6,6 +6,7 @@ import GlassButton from "@/components/glass-button"
 import { useEffect, useState } from "react"
 import { useAppKitAccount } from "@reown/appkit/react"
 import dynamic from "next/dynamic"
+import { toast } from "sonner"
 
 const SurveyComponent = dynamic(() => import("@/components/Survey-render"), { ssr: false })
 
@@ -16,7 +17,6 @@ type ParticipateViewProps = {
 export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps) {
   const [surveys, setSurveys] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
-  const [errorMsg, setErrorMsg] = useState("")
   const { address } = useAppKitAccount()
 
   useEffect(() => {
@@ -50,9 +50,8 @@ export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps
               transition={{ delay: index * 0.1 }}
               className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 shadow-2xl hover:border-blue-400/50 transition-all duration-200 cursor-pointer"
               onClick={async () => {
-                setErrorMsg("")
                 if (!address) {
-                  setErrorMsg("Please connect your wallet to participate.")
+                  toast.error("Please connect your wallet to participate.")
                   return
                 }
                 try {
@@ -63,12 +62,12 @@ export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps
                   })
                   const data = await res.json()
                   if (data.success && data.alreadyResponded) {
-                    setErrorMsg("You have already responded to this survey.")
+                    toast.warning("You have already responded to this survey.")
                     return
                   }
                   if (onSelectSurvey) onSelectSurvey(survey)
                 } catch (err) {
-                  setErrorMsg("Failed to check response status. Please try again.")
+                  toast.error("Failed to check response status. Please try again.")
                 }
               }}
             >
@@ -82,11 +81,9 @@ export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps
                 </div>
               </div>
 
-
               <h3 className="text-white font-bold text-lg mb-2">{survey.title || "Untitled Survey"}</h3>
               <p className="text-gray-300 text-sm mb-4">{survey.json?.description || survey.description || "No description."}</p>
 
-              {/* <p className="text-xs text-blue-300 mb-1">Form ID: {survey.formId || survey._id || "N/A"}</p> */}
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-400">Reward:</span>
@@ -107,11 +104,6 @@ export default function ParticipateView({ onSelectSurvey }: ParticipateViewProps
           ))
         )}
       </div>
-
-      {errorMsg && (
-        <div className="text-red-400 text-center mt-4">{errorMsg}</div>
-      )}
-      {/* SurveyComponent is now rendered by the parent (dashboard) */}
     </motion.div>
   )
 }

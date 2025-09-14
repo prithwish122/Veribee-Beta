@@ -69,7 +69,7 @@
     "react-hook-form": "latest",
     "react-resizable-panels": "latest",
     "recharts": "latest",
-    "sonner": "latest",
+    "sonner": "^2.0.7",
     "styled-components": "latest",
     "survey-creator-core": "^2.3.5",
     "survey-creator-react": "^2.3.5",

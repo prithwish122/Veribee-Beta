@@ -12,9 +12,9 @@ import { headers } from 'next/headers' // added
 import Navbar from "@/components/navbar"
 import { Analytics } from "@vercel/analytics/next"
 
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/sonner"
 
-import  OCConnectWrapper  from "@/components/OCConnectWrapper"
+import OCConnectWrapper from "@/components/OCConnectWrapper"
 
 
 export const metadata: Metadata = {
@@ -34,7 +34,7 @@ export default async function RootLayout({
   const cookies = headersObj.get('cookie')
 
   const opts = {
-    clientId: '<Does_Not_Matter_For_Sandbox_mode>',    
+    clientId: '<Does_Not_Matter_For_Sandbox_mode>',
     redirectUri: 'http://localhost:3000/redirect', // Adjust this URL
     referralCode: 'PARTNER6', // Assign partner code
   };
@@ -44,17 +44,17 @@ export default async function RootLayout({
         {/* <GsapSmoothScroller smoothness={0.06}> */}
         <Suspense fallback={<div>Loading...</div>}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-             <ContextProvider cookies={cookies}>
+            <ContextProvider cookies={cookies}>
               {/* <Navbar /> */}
 
-               <OCConnectWrapper opts={opts} sandboxMode={true}>
+              <OCConnectWrapper opts={opts} sandboxMode={true}>
                 {children}
                 <Analytics />
-                 <Toaster />
+                <Toaster />
               </OCConnectWrapper>
-               
-             </ContextProvider>
-            
+
+            </ContextProvider>
+
             {/* <GsapSmoothScroller smoothness={0.06}>{children}</GsapSmoothScroller> */}
           </ThemeProvider>
         </Suspense>
